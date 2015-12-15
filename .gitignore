@@ -1,0 +1,13 @@
+*/*.o
+*/*.a
+auto-results/
+genome/genome
+intruder/intruder
+vacation/vacation
+ssca2/ssca2
+yada/yada
+kmeans/kmeans
+.cproject
+.project
+.gitignore~
+*/*.swp
