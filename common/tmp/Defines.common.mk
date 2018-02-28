@@ -21,6 +21,7 @@ CPP      := g++
 CPPFLAGS += $(CFLAGS)
 LD       := g++
 LIBS     += -lpthread
+#LIBS     += -I$(LIB)
 
 # Remove these files when doing clean
 OUTPUT +=

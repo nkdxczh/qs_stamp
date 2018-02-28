@@ -333,7 +333,6 @@
 #  ifdef USE_QS
 
 #    include "qs_scheduler.h"
-//#    include "test.h"
 
 /*#    define TM_STARTUP_QS QS_init()
 

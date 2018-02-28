@@ -1,11 +1,3 @@
-#include <boost/lockfree/queue.hpp>
-#include <thread>
-#include <iostream>
-#include <mutex>
-#include <vector>
-#include <unordered_map>
-#include <time.h>
-
 #include "qs_scheduler.h"
 #include "qs_schunit.h"
 
@@ -25,21 +17,6 @@ unsigned QS_hash(void* ptr){
     //printf("hash %ld at %d to %d\n", (long)ptr, QS_usage_q, res);
     return res;
 }
-
-class QS_SchBlock{
-    public:
-        void* obj;
-        std::mutex lock;
-        int next;
-        unsigned key;
-
-        QS_SchBlock(void* ptr){
-            obj = ptr;
-            key = QS_hash(ptr);
-        }
-};
-
-boost::lockfree::queue<QS_SchBlock*> **QS_queues;
 
 void QS_contention_manage_begin(QS_SchBlock& sb){
 

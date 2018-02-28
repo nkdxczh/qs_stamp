@@ -1,86 +1,48 @@
-#ifndef  SCHEDULER_H
-#define  SCHEDULER_H
-
-#include <boost/lockfree/queue.hpp>
-#include <thread>
-#include <iostream>
-#include <mutex>
-#include <vector>
-#include <unordered_map>
-#include <time.h>
-
-#include "schunit.h"
+#include "qs_scheduler.h"
+#include "qs_schunit.h"
 
 #define num_q 3
 #define per_q 4
 
-SchMap sch_map;
+QS_SchMap sch_map;
 
-bool terminate = false;
-int size_q = 100;
-int usage_q = num_q;
+bool QS_terminate = false;
+int QS_size_q = 100;
+int QS_usage_q = num_q;
 
-/*int capacity_abort;
-  int conflict_abort;
-  int other_abort;
-  int gl_abort;
-  int gl_count;
-  int htm_count;
-  std::mutex lock;*/
+boost::lockfree::queue<QS_SchBlock*> **QS_queues;
 
-std::mutex contention_lock;
-int contention_time;
-int contention_queue;
-
-int contention_level[num_q];
-int capacity_level[num_q];
-
-unsigned _hash(void* ptr){
+unsigned QS_hash(void* ptr){
     unsigned res = (long) ptr * 11 % 46591;
-    //printf("hash %ld at %d to %d\n", (long)ptr, usage_q, res);
+    //printf("hash %ld at %d to %d\n", (long)ptr, QS_usage_q, res);
     return res;
 }
 
-class SchBlock{
-    public:
-        void* obj;
-        std::mutex lock;
-        int next;
-        unsigned key;
+void QS_contention_manage_begin(QS_SchBlock& sb){
 
-        SchBlock(void* ptr){
-            obj = ptr;
-            key = _hash(ptr);
-        }
-};
-
-boost::lockfree::queue<SchBlock*> **queues;
-
-void QS_contention_manage_begin(SchBlock& sb){
-
-    SchUnit* unit = sch_map.get(sb.key);
+    QS_SchUnit* unit = sch_map.get(sb.key);
     if(unit == NULL)unit = sch_map.create(sb.key, sb.key % num_q);
 
     sb.next = unit->getQueue();
 
     sb.lock.lock();
 
-    queues[sb.next]->push(&sb);
+    QS_queues[sb.next]->push(&sb);
 
     sb.lock.lock();
 
     sb.lock.unlock();
 }
 
-void QS_contention_manage_abort(SchBlock& sb, int flag){}
+void QS_contention_manage_abort(QS_SchBlock& sb, int flag){}
 
 void QS_dispatch(int id){
-    SchBlock* block;
+    QS_SchBlock* block;
 
-    while(!terminate){
-        if(queues[id]->pop(block)){
+    while(!QS_terminate){
+        if(QS_queues[id]->pop(block)){
 
-            SchUnit* unit = sch_map.get(block->key);
+            QS_SchUnit* unit = sch_map.get(block->key);
             if(unit == NULL)unit = sch_map.create(block->key, block->key % num_q);
 
             unit->add();
@@ -95,7 +57,7 @@ void QS_dispatch(int id){
 void QS_update(){
     int interval = 5000;
 
-    while(!terminate){
+    while(!QS_terminate){
         usleep(interval);
 
         //std::cout << "update" << std::endl;
@@ -134,25 +96,24 @@ void QS_update(){
 }
 
 void QS_init(){
-    contention_time = time(NULL);
-    queues = (boost::lockfree::queue<SchBlock*> **) malloc(sizeof(void*) * num_q);
+    QS_queues = (boost::lockfree::queue<QS_SchBlock*> **) malloc(sizeof(void*) * num_q);
 
-    terminate = false;
+    QS_terminate = false;
 
     std::thread* dispatchers[num_q][per_q];
 
     std::thread* updater;
 
     for(int i = 0; i < num_q; ++i){
-        queues[i] = new boost::lockfree::queue<SchBlock*>(size_q);
+        QS_queues[i] = new boost::lockfree::queue<QS_SchBlock*>(QS_size_q);
     }
 
-    updater = new std::thread(_update);
+    updater = new std::thread(QS_update);
     updater->detach();
 
     for(int i = 0; i < num_q; ++i){
         for(int j = 0; j < per_q; ++j){
-            dispatchers[i][j] = new std::thread(_dispatch, i);
+            dispatchers[i][j] = new std::thread(QS_dispatch, i);
         }
     }
 
@@ -165,9 +126,7 @@ void QS_init(){
 }
 
 void QS_end(){
-    terminate = true;
+    QS_terminate = true;
 
-    delete [] queues;
+    delete [] QS_queues;
 }
-
-#endif

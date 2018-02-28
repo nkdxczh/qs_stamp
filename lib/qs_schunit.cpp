@@ -1,9 +1,3 @@
-#include <iostream>
-#include <mutex>
-#include <atomic>
-#include <map>
-#include <vector>
-
 #include "qs_schunit.h"
 
 void QS_SchUnit::add(){
