@@ -28,7 +28,7 @@
 #  include "thread.h"
 #  include <math.h>
 
-#include "../htm.h"
+#  include "../htm.h"
 
 #  define TM_ARG                        /* nothing */
 #  define TM_ARG_ALONE                  /* nothing */
@@ -42,9 +42,10 @@
 	MAX_ATTEMPTS = TOTAL_ATTEMPTS; \
 	APRIORI_ATTEMPTS = APRIORI_LOCK_ATTEMPTS; \
 	printf("AttemptsBeforeGlobalLock = %d\nAPrioriLockAttempts = %d\n",MAX_ATTEMPTS, APRIORI_ATTEMPTS); \
-}
+        TM_STARTUP_QS;\
+   }
 
-#  define TM_SHUTDOWN()
+#  define TM_SHUTDOWN() TM_SHUTDOWN_QS
 
 #  define TM_THREAD_ENTER()
 
@@ -58,255 +59,255 @@
 #  define TM_MALLOC(size)               malloc(size)
 #  define TM_FREE(ptr)                  free(ptr)
 
-# define SETUP_NUMBER_TASKS(n)
-# define SETUP_NUMBER_THREADS(n)
+#  define SETUP_NUMBER_TASKS(n)
+#  define SETUP_NUMBER_THREADS(n)
 
-# define PRINT_STATS() { \
-	long totalAborts = 0;\
-    long abortedTxs = 0; \
-    long totalAtomicBlocks = 0; \
-    long totalTSXTxs = 0; \
-    long totalSGLTxs = 0; \
-    long totalRetries = 0; \
-    long totalAuxLockTxs = 0; \
-    long totalTSXTxsSuccessfulAcquiredLocks[NUMBER_ATOMIC_BLOCKS + 1];  \
-    long totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[NUMBER_ATOMIC_BLOCKS + 1]; \
-    long totalTSXTxsAcquiredLock[NUMBER_ATOMIC_BLOCKS]; \
-    long conflictAbort = 0; \
-    long capacityAbort = 0; \
-    long retryAbort = 0; \
-    long otherAbort = 0; \
-    long lockAbort = 0; \
-    long updateStatsCounter = 0; \
-    unsigned long cyclesWaiting = 0; \
-    int t; \
-    int k; \
-    for (k = 0; k < NUMBER_ATOMIC_BLOCKS + 1; k++) { \
-        totalTSXTxsSuccessfulAcquiredLocks[k] = 0; \
-        totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[k] = 0; \
-        if (k < NUMBER_ATOMIC_BLOCKS) { \
-            totalTSXTxsAcquiredLock[k] = 0; \
-        } \
-    } \
-    for (t = 0; t < NUMBER_THREADS; t++) { \
-        totalAborts += statistics[t].totalAborts; \
-        abortedTxs += statistics[t].abortedTxs; \
-        totalAtomicBlocks += statistics[t].totalAtomicBlocks; \
-        totalTSXTxs += statistics[t].totalTSXTxs; \
-        totalSGLTxs += statistics[t].totalSGLTxs; \
-        totalRetries += statistics[t].totalRetries; \
-        for (k = 0; k < NUMBER_ATOMIC_BLOCKS + 1; k++) { \
-            totalTSXTxsSuccessfulAcquiredLocks[k] += statistics[t].totalTSXTxsSuccessfulAcquiredLocks[k]; \
-            totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[k] += statistics[t].totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[k]; \
-            if (k < NUMBER_ATOMIC_BLOCKS) { \
-                totalTSXTxsAcquiredLock[k] += statistics[t].totalTSXTxsAcquiredLock[k]; \
-            } \
-        } \
-        totalAuxLockTxs += statistics[t].totalAuxLockTxs; \
-        conflictAbort += statistics[t].conflictAbort; \
-        capacityAbort += statistics[t].capacityAbort; \
-        retryAbort += statistics[t].retryAbort; \
-        otherAbort += statistics[t].otherAbort; \
-        lockAbort += statistics[t].lockAbort; \
-        updateStatsCounter += statistics[t].updateStatsCounter; \
-        cyclesWaiting += statistics[t].cyclesWaiting; \
-    } \
-    printf("cyclesWaiting %lu\n", cyclesWaiting); \
-    printf("totalAborts %ld\n", totalAborts); \
-    printf("abortedTxs %ld\n", abortedTxs); \
-    printf("totalAtomicBlocks %ld\n", totalAtomicBlocks); \
-    printf("totalTSXTxs %ld\n", totalTSXTxs); \
-    printf("totalAuxLockTxs %ld\n", totalAuxLockTxs); \
-    printf("totalSGLTxs %ld\n", totalSGLTxs); \
-    printf("totalRetries %ld\n", totalRetries); \
-    printf("conflictAbort %ld\n", conflictAbort); \
-    printf("capacityAbort %ld\n", capacityAbort); \
-    printf("retryAbort %ld\n", retryAbort); \
-    printf("otherAbort %ld\n", otherAbort); \
-    printf("lockAbort %ld\n", lockAbort); \
-    printf("updateStatsCounter %ld\n", statistics[0].updateStatsCounter); \
-    printf("totalTSXTxsSuccessfulAcquiredLocks %d", NUMBER_ATOMIC_BLOCKS + 1); \
-    for (k = 0; k < NUMBER_ATOMIC_BLOCKS + 1; k++) { \
-        printf(" %ld", totalTSXTxsSuccessfulAcquiredLocks[k]); \
-    } \
-    printf("\n"); \
-    printf("totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks %d", NUMBER_ATOMIC_BLOCKS + 1); \
-    for (k = 0; k < NUMBER_ATOMIC_BLOCKS + 1; k++) { \
-        printf(" %ld", totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[k]); \
-    } \
-    printf("\n"); \
-    printf("totalTSXTxsAcquiredLock %d", NUMBER_ATOMIC_BLOCKS); \
-    for (k = 0; k < NUMBER_ATOMIC_BLOCKS; k++) { \
-        printf(" %ld", totalTSXTxsAcquiredLock[k]); \
-    } \
-    printf("\n"); \
-    PRINT_SEER_STATISTICS; \
-}
+#  define PRINT_STATS() { \
+     long totalAborts = 0;\
+     long abortedTxs = 0; \
+     long totalAtomicBlocks = 0; \
+     long totalTSXTxs = 0; \
+     long totalSGLTxs = 0; \
+     long totalRetries = 0; \
+     long totalAuxLockTxs = 0; \
+     long totalTSXTxsSuccessfulAcquiredLocks[NUMBER_ATOMIC_BLOCKS + 1];  \
+     long totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[NUMBER_ATOMIC_BLOCKS + 1]; \
+     long totalTSXTxsAcquiredLock[NUMBER_ATOMIC_BLOCKS]; \
+     long conflictAbort = 0; \
+     long capacityAbort = 0; \
+     long retryAbort = 0; \
+     long otherAbort = 0; \
+     long lockAbort = 0; \
+     long updateStatsCounter = 0; \
+     unsigned long cyclesWaiting = 0; \
+     int t; \
+     int k; \
+     for (k = 0; k < NUMBER_ATOMIC_BLOCKS + 1; k++) { \
+       totalTSXTxsSuccessfulAcquiredLocks[k] = 0; \
+       totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[k] = 0; \
+       if (k < NUMBER_ATOMIC_BLOCKS) { \
+         totalTSXTxsAcquiredLock[k] = 0; \
+       } \
+     } \
+     for (t = 0; t < NUMBER_THREADS; t++) { \
+       totalAborts += statistics[t].totalAborts; \
+       abortedTxs += statistics[t].abortedTxs; \
+       totalAtomicBlocks += statistics[t].totalAtomicBlocks; \
+       totalTSXTxs += statistics[t].totalTSXTxs; \
+       totalSGLTxs += statistics[t].totalSGLTxs; \
+       totalRetries += statistics[t].totalRetries; \
+       for (k = 0; k < NUMBER_ATOMIC_BLOCKS + 1; k++) { \
+         totalTSXTxsSuccessfulAcquiredLocks[k] += statistics[t].totalTSXTxsSuccessfulAcquiredLocks[k]; \
+         totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[k] += statistics[t].totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[k]; \
+         if (k < NUMBER_ATOMIC_BLOCKS) { \
+           totalTSXTxsAcquiredLock[k] += statistics[t].totalTSXTxsAcquiredLock[k]; \
+         } \
+       } \
+       totalAuxLockTxs += statistics[t].totalAuxLockTxs; \
+       conflictAbort += statistics[t].conflictAbort; \
+       capacityAbort += statistics[t].capacityAbort; \
+       retryAbort += statistics[t].retryAbort; \
+       otherAbort += statistics[t].otherAbort; \
+       lockAbort += statistics[t].lockAbort; \
+       updateStatsCounter += statistics[t].updateStatsCounter; \
+       cyclesWaiting += statistics[t].cyclesWaiting; \
+     } \
+     printf("cyclesWaiting %lu\n", cyclesWaiting); \
+     printf("totalAborts %ld\n", totalAborts); \
+     printf("abortedTxs %ld\n", abortedTxs); \
+     printf("totalAtomicBlocks %ld\n", totalAtomicBlocks); \
+     printf("totalTSXTxs %ld\n", totalTSXTxs); \
+     printf("totalAuxLockTxs %ld\n", totalAuxLockTxs); \
+     printf("totalSGLTxs %ld\n", totalSGLTxs); \
+     printf("totalRetries %ld\n", totalRetries); \
+     printf("conflictAbort %ld\n", conflictAbort); \
+     printf("capacityAbort %ld\n", capacityAbort); \
+     printf("retryAbort %ld\n", retryAbort); \
+     printf("otherAbort %ld\n", otherAbort); \
+     printf("lockAbort %ld\n", lockAbort); \
+     printf("updateStatsCounter %ld\n", statistics[0].updateStatsCounter); \
+     printf("totalTSXTxsSuccessfulAcquiredLocks %d", NUMBER_ATOMIC_BLOCKS + 1); \
+     for (k = 0; k < NUMBER_ATOMIC_BLOCKS + 1; k++) { \
+       printf(" %ld", totalTSXTxsSuccessfulAcquiredLocks[k]); \
+     } \
+     printf("\n"); \
+     printf("totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks %d", NUMBER_ATOMIC_BLOCKS + 1); \
+     for (k = 0; k < NUMBER_ATOMIC_BLOCKS + 1; k++) { \
+       printf(" %ld", totalTSXTxsSuccessfulAcquiredTaskAndCoreLocks[k]); \
+     } \
+     printf("\n"); \
+     printf("totalTSXTxsAcquiredLock %d", NUMBER_ATOMIC_BLOCKS); \
+     for (k = 0; k < NUMBER_ATOMIC_BLOCKS; k++) { \
+       printf(" %ld", totalTSXTxsAcquiredLock[k]); \
+     } \
+     printf("\n"); \
+     PRINT_SEER_STATISTICS; \
+   }
 
-# define IS_LOCKED(lock)        *((volatile int*)(&lock)) != 0
+#  define IS_LOCKED(lock)        *((volatile int*)(&lock)) != 0
 
-# define TASK_LOCKS 0
+#  define TASK_LOCKS 0
 
-# define AL_LOCK(idx)
+#  define AL_LOCK(idx)
 
-# define TM_BEGIN(b) { \
+#  define TM_BEGIN(b) { \
     int tx = 0; \
     TM_BEGIN_EXT(b,tx);
 
-#ifdef USE_CPU_LOCKS
+#  ifdef USE_CPU_LOCKS
 
-#define WAIT_FOR_CPU_LOCKS \
-    while (!acquiredCpuLock && IS_LOCKED(paddedCpuLocks[myStats->cpuLockId].lock)) { \
-        PAUSE_INSTR; \
-    } \
+#    define WAIT_FOR_CPU_LOCKS \
+       while (!acquiredCpuLock && IS_LOCKED(paddedCpuLocks[myStats->cpuLockId].lock)) { \
+         PAUSE_INSTR; \
+       } \
 
-#define CHECK_ACQUIRE_CPU_LOCKS \
-	if (capacity > 0 && tries <= APRIORI_ATTEMPTS && acquiredCpuLock == 0 && tries > 0) { \
-        TM_ACQUIRE_CPU_LOCKS(b); \
-        acquiredCpuLock = 1; \
-    }  \
+#    define CHECK_ACQUIRE_CPU_LOCKS \
+       if (capacity > 0 && tries <= APRIORI_ATTEMPTS && acquiredCpuLock == 0 && tries > 0) { \
+         TM_ACQUIRE_CPU_LOCKS(b); \
+         acquiredCpuLock = 1; \
+       }  \
 
-#define CHECK_RELEASE_CPU_LOCKS \
-	if (acquiredCpuLock) { \
-        paddedCpuLocks[myStats->cpuLockId].lock = 0; \
-    } \
+#    define CHECK_RELEASE_CPU_LOCKS \
+       if (acquiredCpuLock) { \
+         paddedCpuLocks[myStats->cpuLockId].lock = 0; \
+       } \
 
-#else
+#  else /*!USE_CPU_LOCKS*/
 
-#define WAIT_FOR_CPU_LOCKS
-#define CHECK_ACQUIRE_CPU_LOCKS
-#define CHECK_RELEASE_CPU_LOCKS
+#    define WAIT_FOR_CPU_LOCKS
+#    define CHECK_ACQUIRE_CPU_LOCKS
+#    define CHECK_RELEASE_CPU_LOCKS
 
-#endif
-
-
-#ifdef USE_TX_LOCKS
-
-#define WAIT_FOR_TX_LOCKS(b) \
-	while (!acquiredLocks && IS_LOCKED(paddedSpinLocks[b].lock)) { \
-        PAUSE_INSTR; \
-    } \
-
-#define CHECK_ACQUIRE_TX_LOCKS(b) \
-	if (tries <= APRIORI_ATTEMPTS && tries > 0 && acquiredLocks == 0) { \
-        TM_ACQUIRE_LOCKS(b, number_of_locks); \
-        acquiredLocks = 1; \
-    } \
-
-#define CHECK_RELEASE_TX_LOCKS \
-	if (acquiredLocks){ \
-        TM_RELEASE_LOCKS(block_id); \
-    } \
-
-#else
-
-#define WAIT_FOR_TX_LOCKS(b)
-#define CHECK_ACQUIRE_TX_LOCKS(b)
-#define CHECK_RELEASE_TX_LOCKS
-
-#endif
+#  endif /*!USE_CPU_LOCKS*/
 
 
-#ifdef USE_GRADIENT_DESCENT
+#  ifdef USE_TX_LOCKS
 
-#define CALL_GRADIENT_DESCENT GRADIENT_DESCENT()
+#    define WAIT_FOR_TX_LOCKS(b) \
+       while (!acquiredLocks && IS_LOCKED(paddedSpinLocks[b].lock)) { \
+         PAUSE_INSTR; \
+       } \
 
-#else
+#    define CHECK_ACQUIRE_TX_LOCKS(b) \
+       if (tries <= APRIORI_ATTEMPTS && tries > 0 && acquiredLocks == 0) { \
+       TM_ACQUIRE_LOCKS(b, number_of_locks); \
+       acquiredLocks = 1; \
+     } \
 
-#define CALL_GRADIENT_DESCENT
+#    define CHECK_RELEASE_TX_LOCKS \
+       if (acquiredLocks){ \
+       TM_RELEASE_LOCKS(block_id); \
+     } \
 
-#endif
+#  else /*!USE_TX_LOCKS*/
 
+#    define WAIT_FOR_TX_LOCKS(b)
+#    define CHECK_ACQUIRE_TX_LOCKS(b)
+#    define CHECK_RELEASE_TX_LOCKS
 
-#ifdef USE_SEER
-
-#define INIT_SEER_TX \
-    unsigned short spinLocksAcquired[NUMBER_ATOMIC_BLOCKS] = { 0 }; \
-
-#define INIT_SEER_TX_SNAPSHOT  globalSnapshot[thread_id].task_id = block_id;
-
-#define CALL_UPDATE_LOCKS(print) UPDATE_LOCKS_TO_ACQUIRE(print)
-
-#define REGISTER_TM_CONFLICT(b) TM_CONFLICT(b)
-
-#define REGISTER_TM_COMMIT(b) TM_COMMIT(block_id)
-
-#define PRINT_SEER_STATISTICS \
-    long matrix_aborts[NUMBER_ATOMIC_BLOCKS][NUMBER_ATOMIC_BLOCKS]; \
-    long matrix_commits[NUMBER_ATOMIC_BLOCKS][NUMBER_ATOMIC_BLOCKS]; \
-    unsigned int x,y; \
-    unsigned int threadId; \
-    for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
-        for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
-            matrix_aborts[x][y] = 0; \
-            matrix_commits[x][y] = 0; \
-        } \
-    } \
-    for (t = 0; t < NUMBER_THREADS; t++) { \
-        for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
-            for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
-                matrix_aborts[x][y] += statistics[t].abortStats[x][y]; \
-                matrix_commits[x][y] += statistics[t].commitStats[x][y]; \
-            } \
-        } \
-    } \
-    printf("Commits:\n"); \
-    for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
-        for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
-            printf("%ld\t", matrix_commits[x][y]); \
-        } \
-        printf("\n"); \
-    } \
-    printf("\n"); \
-    printf("Aborts:\n"); \
-    for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
-        for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
-            printf("%ld\t", matrix_aborts[x][y]); \
-        } \
-        printf("\n"); \
-    } \
-    printf("\n"); \
-    CALL_UPDATE_LOCKS(1); \
-    printf("Conjunctive Probs:\n"); \
-    for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
-        for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
-            printf("%0.2lf ", conjAbortProb[x][y]); \
-        } \
-        printf("\n"); \
-    } \
-    printf("Locks: \n"); \
-    for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
-        for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
-            printf("%d ", globalLocksToAcquire[x][y]); \
-        } \
-        printf("\n"); \
-    } \
-
-#else
-
-#define INIT_SEER_TX
-#define INIT_SEER_TX_SNAPSHOT
-#define CALL_UPDATE_LOCKS(print)
-#define REGISTER_TM_CONFLICT(b)
-#define REGISTER_TM_COMMIT(b)
-#define PRINT_SEER_STATISTICS
-
-#endif
-
-#ifdef USE_HLE
-
-#define GET_MAX_ATTEMPTS 1
-
-#else
-
-#define GET_MAX_ATTEMPTS MAX_ATTEMPTS
-
-#endif
+#  endif /*!USE_TX_LOCKS*/
 
 
-#ifdef USE_SCM
+#  ifdef USE_GRADIENT_DESCENT
 
-#define ACQUIRE_AUX_LOCK \
+#    define CALL_GRADIENT_DESCENT GRADIENT_DESCENT()
+
+#  else /*!USE_GRADIENT_DESCENT*/
+
+#    define CALL_GRADIENT_DESCENT
+
+#  endif /*!USE_GRADIENT_DESCENT*/
+
+
+#  ifdef USE_SEER
+
+#  define INIT_SEER_TX \
+     unsigned short spinLocksAcquired[NUMBER_ATOMIC_BLOCKS] = { 0 }; \
+
+#  define INIT_SEER_TX_SNAPSHOT  globalSnapshot[thread_id].task_id = block_id;
+
+#  define CALL_UPDATE_LOCKS(print) UPDATE_LOCKS_TO_ACQUIRE(print)
+
+#  define REGISTER_TM_CONFLICT(b) TM_CONFLICT(b)
+
+#  define REGISTER_TM_COMMIT(b) TM_COMMIT(block_id)
+
+#  define PRINT_SEER_STATISTICS \
+     long matrix_aborts[NUMBER_ATOMIC_BLOCKS][NUMBER_ATOMIC_BLOCKS]; \
+     long matrix_commits[NUMBER_ATOMIC_BLOCKS][NUMBER_ATOMIC_BLOCKS]; \
+     unsigned int x,y; \
+     unsigned int threadId; \
+     for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
+       for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
+         matrix_aborts[x][y] = 0; \
+         matrix_commits[x][y] = 0; \
+       } \
+     } \
+     for (t = 0; t < NUMBER_THREADS; t++) { \
+       for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
+         for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
+           matrix_aborts[x][y] += statistics[t].abortStats[x][y]; \
+           matrix_commits[x][y] += statistics[t].commitStats[x][y]; \
+         } \
+       } \
+     } \
+     printf("Commits:\n"); \
+     for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
+       for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
+         printf("%ld\t", matrix_commits[x][y]); \
+       } \
+       printf("\n"); \
+     } \
+     printf("\n"); \
+     printf("Aborts:\n"); \
+     for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
+       for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
+         printf("%ld\t", matrix_aborts[x][y]); \
+       } \
+       printf("\n"); \
+     } \
+     printf("\n"); \
+     CALL_UPDATE_LOCKS(1); \
+     printf("Conjunctive Probs:\n"); \
+     for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
+       for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
+         printf("%0.2lf ", conjAbortProb[x][y]); \
+       } \
+       printf("\n"); \
+     } \
+     printf("Locks: \n"); \
+     for (x = 0; x < NUMBER_ATOMIC_BLOCKS; x++) { \
+       for (y = 0; y < NUMBER_ATOMIC_BLOCKS; y++) { \
+         printf("%d ", globalLocksToAcquire[x][y]); \
+       } \
+       printf("\n"); \
+     } \
+
+#  else /*!USE_SEER*/
+
+#    define INIT_SEER_TX
+#    define INIT_SEER_TX_SNAPSHOT
+#    define CALL_UPDATE_LOCKS(print)
+#    define REGISTER_TM_CONFLICT(b)
+#    define REGISTER_TM_COMMIT(b)
+#    define PRINT_SEER_STATISTICS
+
+#  endif /*!USE_SEER*/
+
+#  ifdef USE_HLE
+
+#    define GET_MAX_ATTEMPTS 1
+
+#  else
+
+#    define GET_MAX_ATTEMPTS MAX_ATTEMPTS
+
+#  endif
+
+
+#  ifdef USE_SCM
+
+#    define ACQUIRE_AUX_LOCK \
 	if (tries == MAX_ATTEMPTS) { \
 	    { \
         unsigned long start_tick, end_tick; \
@@ -319,17 +320,56 @@
         } \
 	} \
 
-#define RELEASE_AUX_LOCK if (tries != MAX_ATTEMPTS) { aux_lock.lock = 0; myStats->totalAuxLockTxs++; }
+#    define RELEASE_AUX_LOCK if (tries != MAX_ATTEMPTS) { aux_lock.lock = 0; myStats->totalAuxLockTxs++; }
 
-#else
+#  else /*!USE_SCM*/
 
-#define ACQUIRE_AUX_LOCK
+#    define ACQUIRE_AUX_LOCK
 
-#define RELEASE_AUX_LOCK
+#    define RELEASE_AUX_LOCK
 
-#endif
+#  endif /*!USE_SCM*/
 
-# define TM_BEGIN_EXT(b,tx) { \
+#  ifdef USE_QS
+
+#    include "qs_scheduler.h"
+//#    include "test.h"
+
+/*#    define TM_STARTUP_QS QS_init()
+
+#    define TM_SHUTDOWN_QS QS_end()
+
+#    define TM_INIT_QS(ptr) QS_SchBlock sb(ptr)
+
+#    define TM_COMMIT_QS free(&sb)
+
+#    define TM_ENQUEUE_QS QS_contention_manage_begin(sb)*/
+
+#    define TM_STARTUP_QS
+
+#    define TM_SHUTDOWN_QS
+
+#    define TM_INIT_QS(ptr)
+
+#    define TM_COMMIT_QS
+
+#    define TM_ENQUEUE_QS
+
+#  else /*!USE_QS*/
+
+#    define TM_STARTUP_QS
+
+#    define TM_SHUTDOWN_QS
+
+#    define TM_INIT_QS(ptr)
+
+#    define TM_COMMIT_QS
+
+#    define TM_ENQUEUE_QS
+
+#  endif /*!USE_QS*/
+
+#  define TM_BEGIN_EXT(b,tx) { \
         unsigned short acquiredLocks = 0; \
         unsigned short acquiredCpuLock = 0; \
         unsigned short thread_id = myThreadId; \
@@ -340,8 +380,10 @@
         int tries = GET_MAX_ATTEMPTS; \
         int capacity = 0; \
         int number_of_locks = 0; \
+        TM_INIT_QS(b);\
         while (1) { \
             tx = 1; \
+            TM_ENQUEUE_QS;\
             if (IS_LOCKED(htm_single_global_lock)) { \
             	if (thread_id == 0) { \
                     myStats->updateStatsCounter++; \
@@ -415,9 +457,11 @@
         HTM_COMMIT; \
         REGISTER_TM_COMMIT(block_id); \
         myStats->totalTSXTxs++; \
+        TM_COMMIT_QS;\
     } else {    \
         pthread_mutex_unlock(&htm_single_global_lock); \
         myStats->totalSGLTxs++; \
+        TM_COMMIT_QS;\
     } \
     RELEASE_AUX_LOCK; \
     CHECK_RELEASE_TX_LOCKS; \
@@ -504,166 +548,166 @@
     } \
 }
 
-#if (NUMBER_THREADS == 1)
+#  if (NUMBER_THREADS == 1)
 
-#define TM_CONFLICT(taskId)
+#    define TM_CONFLICT(taskId)
 
-#define TM_COMMIT(taskId)
+#    define TM_COMMIT(taskId)
 
-#else // Threads == 1
+#  else // Threads != 1
 
-#ifdef defined(USE_STATIC_SAMPLING)
+#    ifdef defined(USE_STATIC_SAMPLING)
 
-# define TM_CONFLICT(taskId) {  \
-  myStats->abortStats[taskId][globalSnapshot[neighbourghSample].task_id]++;  \
-}
+#      define TM_CONFLICT(taskId) {  \
+         myStats->abortStats[taskId][globalSnapshot[neighbourghSample].task_id]++;  \
+       }
 
-# define TM_COMMIT(taskId) {    \
-  myStats->commitStats[taskId][globalSnapshot[neighbourghSample].task_id]++;  \
-}
+#      define TM_COMMIT(taskId) {    \
+         myStats->commitStats[taskId][globalSnapshot[neighbourghSample].task_id]++;  \
+       }
 
-#elif defined(USE_LINEAR_SCAN)
+#    elif defined(USE_LINEAR_SCAN)
 
-# define TM_CONFLICT(taskId) {  \
-  int y = 0; \
-  for (; y < NUMBER_THREADS; y++) { \
-      if (y == myThreadId) continue; \
-      myStats->abortStats[taskId][globalSnapshot[y].task_id]++;  \
-  } \
-}
+#      define TM_CONFLICT(taskId) {  \
+         int y = 0; \
+         for (; y < NUMBER_THREADS; y++) { \
+           if (y == myThreadId) continue; \
+             myStats->abortStats[taskId][globalSnapshot[y].task_id]++;  \
+           } \
+         }
 
-# define TM_COMMIT(taskId) {    \
-    int y = 0; \
-    for (; y < NUMBER_THREADS; y++) { \
-        if (y == myThreadId) continue; \
-        myStats->commitStats[taskId][globalSnapshot[y].task_id]++;  \
-    } \
-}
+#      define TM_COMMIT(taskId) {    \
+         int y = 0; \
+         for (; y < NUMBER_THREADS; y++) { \
+           if (y == myThreadId) continue; \
+             myStats->commitStats[taskId][globalSnapshot[y].task_id]++;  \
+           } \
+         }
 
-#else
+#    else /*!USE_LINEAR_SCAN && !USE_STATIC_SAMPLING*/
 
-# define TM_CONFLICT(taskId) {  \
-  unsigned short b = myStats->totalAtomicBlocks % NUMBER_THREADS; \
-  if (b == thread_id) { \
-    b = (b + 1) % NUMBER_THREADS; \
-  } \
-  myStats->abortStats[taskId][globalSnapshot[b].task_id]++;  \
-}
+#      define TM_CONFLICT(taskId) {  \
+         unsigned short b = myStats->totalAtomicBlocks % NUMBER_THREADS; \
+         if (b == thread_id) { \
+           b = (b + 1) % NUMBER_THREADS; \
+         } \
+         myStats->abortStats[taskId][globalSnapshot[b].task_id]++;  \
+       }
 
-# define TM_COMMIT(taskId) {    \
-  unsigned short b = myStats->totalAtomicBlocks % NUMBER_THREADS; \
-  if (b == thread_id) { \
-    b = (b + 1) % NUMBER_THREADS; \
-  } \
-  myStats->commitStats[taskId][globalSnapshot[b].task_id]++;  \
-}
+#      define TM_COMMIT(taskId) {    \
+         unsigned short b = myStats->totalAtomicBlocks % NUMBER_THREADS; \
+         if (b == thread_id) { \
+           b = (b + 1) % NUMBER_THREADS; \
+         } \
+         myStats->commitStats[taskId][globalSnapshot[b].task_id]++;  \
+       }
 
-#endif
+#    endif /*!USE_LINEAR_SCAN && !USE_STATIC_SAMPLING*/
 
-#endif // Threads > 1
+#  endif // Threads > 1
 
 
-#ifdef USE_HTM_LOCKS
+#  ifdef USE_HTM_LOCKS
 
-# define TM_ACQUIRE_LOCKS(taskId, number_of_locks) { \
-    int i; \
-    short last_locked = -1; \
-    unsigned budget = 3; \
-    while (1) { \
-        ARG_TYPE TM_buff; \
-        STATUS_TYPE status = HTM_BEGIN(TM_buff); \
-        if (status == IS_STARTED) { \
-            for (i = 0; i < NUMBER_ATOMIC_BLOCKS; i++) { \
-                unsigned short current = globalLocksToAcquire[taskId][i]; \
-                if (current <= last_locked || current == NO_LOCK) { \
-                    spinLocksAcquired[i] = NO_LOCK; \
-                    break; \
-                } \
-                last_locked = current; \
-                spinLocksAcquired[i] = current; \
-                if (paddedSpinLocks[current].lock == 1) { \
-                    HTM_ABORT(0xaa); \
-                } \
-                paddedSpinLocks[current].lock = 1; \
-                number_of_locks++; \
-                myStats->totalTSXTxsAcquiredLock[current]++; \
-            } \
-            HTM_COMMIT; \
-            break; \
-        } else { \
-            --budget; \
-            PREPARE_CHECK_EXPLICIT(TM_buff, status, 0xaa); \
-            if (budget <= 0 || IS_EXPLICIT_ABORT(0xaa)) { \
-                for (i = 0; i < NUMBER_ATOMIC_BLOCKS; i++) { \
-                    unsigned short current = globalLocksToAcquire[taskId][i]; \
-                    if (current <= last_locked || current == NO_LOCK) { \
-                        spinLocksAcquired[i] = NO_LOCK; \
-                        break; \
-                    } \
-                    last_locked = current; \
-                    spinLocksAcquired[i] = current; \
-                    while (__sync_val_compare_and_swap(&paddedSpinLocks[current].lock, 0, 1) == 1) { \
-                        PAUSE_INSTR; \
-                    } \
-                    number_of_locks++; \
-                    myStats->totalTSXTxsAcquiredLock[current]++; \
-                } \
-                break; \
-            } \
-        } \
-    } \
-} \
+#    define TM_ACQUIRE_LOCKS(taskId, number_of_locks) { \
+       int i; \
+       short last_locked = -1; \
+       unsigned budget = 3; \
+       while (1) { \
+         ARG_TYPE TM_buff; \
+         STATUS_TYPE status = HTM_BEGIN(TM_buff); \
+         if (status == IS_STARTED) { \
+           for (i = 0; i < NUMBER_ATOMIC_BLOCKS; i++) { \
+             unsigned short current = globalLocksToAcquire[taskId][i]; \
+               if (current <= last_locked || current == NO_LOCK) { \
+                 spinLocksAcquired[i] = NO_LOCK; \
+                 break; \
+               } \
+               last_locked = current; \
+               spinLocksAcquired[i] = current; \
+               if (paddedSpinLocks[current].lock == 1) { \
+                 HTM_ABORT(0xaa); \
+               } \
+               paddedSpinLocks[current].lock = 1; \
+               number_of_locks++; \
+               myStats->totalTSXTxsAcquiredLock[current]++; \
+             } \
+             HTM_COMMIT; \
+             break; \
+           } else { \
+           --budget; \
+           PREPARE_CHECK_EXPLICIT(TM_buff, status, 0xaa); \
+           if (budget <= 0 || IS_EXPLICIT_ABORT(0xaa)) { \
+             for (i = 0; i < NUMBER_ATOMIC_BLOCKS; i++) { \
+               unsigned short current = globalLocksToAcquire[taskId][i]; \
+                 if (current <= last_locked || current == NO_LOCK) { \
+                   spinLocksAcquired[i] = NO_LOCK; \
+                   break; \
+                 } \
+                 last_locked = current; \
+                 spinLocksAcquired[i] = current; \
+                 while (__sync_val_compare_and_swap(&paddedSpinLocks[current].lock, 0, 1) == 1) { \
+                   PAUSE_INSTR; \
+                 } \
+                 number_of_locks++; \
+                 myStats->totalTSXTxsAcquiredLock[current]++; \
+               } \
+               break; \
+             } \
+           } \
+         } \
+       } \
 
-#else
+#  else /*!USE_HTM_LOCKS*/
 
-# define TM_ACQUIRE_LOCKS(taskId, number_of_locks) { \
-    int i; \
-    short last_locked = -1; \
-    for (i = 0; i < NUMBER_ATOMIC_BLOCKS; i++) { \
-    	unsigned short current = globalLocksToAcquire[taskId][i]; \
-    	if (current <= last_locked || current == NO_LOCK) { \
-    		spinLocksAcquired[i] = NO_LOCK; \
-    		break; \
-    	} \
-    	last_locked = current; \
-    	spinLocksAcquired[i] = current; \
-    	while (__sync_val_compare_and_swap(&paddedSpinLocks[current].lock, 0, 1) == 1) { \
-    		PAUSE_INSTR; \
-    	} \
-    	number_of_locks++; \
-    	myStats->totalTSXTxsAcquiredLock[current]++; \
-    } \
-} \
+#    define TM_ACQUIRE_LOCKS(taskId, number_of_locks) { \
+       int i; \
+       short last_locked = -1; \
+       for (i = 0; i < NUMBER_ATOMIC_BLOCKS; i++) { \
+         unsigned short current = globalLocksToAcquire[taskId][i]; \
+         if (current <= last_locked || current == NO_LOCK) { \
+           spinLocksAcquired[i] = NO_LOCK; \
+       	   break; \
+         } \
+         last_locked = current; \
+         spinLocksAcquired[i] = current; \
+         while (__sync_val_compare_and_swap(&paddedSpinLocks[current].lock, 0, 1) == 1) { \
+       	   PAUSE_INSTR; \
+         } \
+         number_of_locks++; \
+         myStats->totalTSXTxsAcquiredLock[current]++; \
+       } \
+     } \
 
-#endif
+#  endif /*!USE_HTM_LOCKS*/
 
-# define TM_ACQUIRE_CPU_LOCKS(taskId) { \
-    while (__sync_val_compare_and_swap(&paddedCpuLocks[myStats->cpuLockId].lock, 0, 1) == 1) { \
-        PAUSE_INSTR; \
-    } \
-} \
+#  define TM_ACQUIRE_CPU_LOCKS(taskId) { \
+     while (__sync_val_compare_and_swap(&paddedCpuLocks[myStats->cpuLockId].lock, 0, 1) == 1) { \
+       PAUSE_INSTR; \
+     } \
+   } \
 
-# define TM_RELEASE_LOCKS(taskId) { \
-    int i; \
-    for (i = 0; i < NUMBER_ATOMIC_BLOCKS; i++) { \
-        unsigned short current = spinLocksAcquired[i]; \
-        if (current == NO_LOCK) { \
-            break; \
-        } \
-        paddedSpinLocks[current].lock = 0; \
-        spinLocksAcquired[i] = NO_LOCK; \
-    }   \
-}   \
+#  define TM_RELEASE_LOCKS(taskId) { \
+     int i; \
+     for (i = 0; i < NUMBER_ATOMIC_BLOCKS; i++) { \
+       unsigned short current = spinLocksAcquired[i]; \
+       if (current == NO_LOCK) { \
+         break; \
+       } \
+       paddedSpinLocks[current].lock = 0; \
+       spinLocksAcquired[i] = NO_LOCK; \
+     }   \
+   }   \
 
-# define TM_RELEASE_CPU_LOCKS(taskId) { \
-    paddedCpuLocks[myStats->cpuLockId].lock = 0; \
-} \
+#  define TM_RELEASE_CPU_LOCKS(taskId) { \
+     paddedCpuLocks[myStats->cpuLockId].lock = 0; \
+   } \
 
-# define OBTAIN_GAUSSIAN_VALUE(maxThreshold, searchedValue) { \
-        searchedValue = searchedValue - 0.5; \
-        int row = 0; \
-        int foundRow = 0; \
-        int column = 0; \
+#  define OBTAIN_GAUSSIAN_VALUE(maxThreshold, searchedValue) { \
+     searchedValue = searchedValue - 0.5; \
+     int row = 0; \
+     int foundRow = 0; \
+     int column = 0; \
         int foundColumn = 0; \
         for (; row < TABLE_ROW_INDEXES; row++) { \
             if (GAUSSIAN_TABLE[row][0] > searchedValue) { \
@@ -682,11 +726,11 @@
         } \
         if (!foundRow) { row--; column = TABLE_COLUMN_INDEXES - 1; } \
         maxThreshold = row * 0.1 + column * 0.01; \
-}
+   }
 
-#define CONDITION_TO_LOCK conjAbortProb[x][y] > prob && conjAbortProb[x][y] > min_val
+#  define CONDITION_TO_LOCK conjAbortProb[x][y] > prob && conjAbortProb[x][y] > min_val
 
-# define UPDATE_LOCKS_TO_ACQUIRE(print) { \
+#  define UPDATE_LOCKS_TO_ACQUIRE(print) { \
     double alpha = globalOptimizer.alpha_value; \
     double min_val = globalOptimizer.min_value; \
     if (globalOptimizer.value_ptr == &globalOptimizer.alpha_value) { \
@@ -729,10 +773,10 @@
             } \
         } \
     } \
-}
+   }
 
 
-# define CALL_UPDATE_LOCKS_SCHEME(print) \
+#  define CALL_UPDATE_LOCKS_SCHEME(print) \
     /* Notice that we are doing this for each x transaction */ \
         unsigned long totalExecutions = 0; \
         int t; \
@@ -760,9 +804,9 @@
 
 
 
-#    define TM_BEGIN_RO()                 TM_BEGIN(0)
-#    define TM_RESTART()                  HTM_ABORT(0x29);
-#    define TM_RESTART_EXT(code)    \
+#  define TM_BEGIN_RO()                 TM_BEGIN(0)
+#  define TM_RESTART()                  HTM_ABORT(0x29);
+#  define TM_RESTART_EXT(code)    \
     if (tries > 0) { \
         HTM_ABORT(code); \
     } else {    \
@@ -774,7 +818,7 @@
     RELEASE_AUX_LOCK; \
 
 
-#    define TM_EARLY_RELEASE(var)
+#  define TM_EARLY_RELEASE(var)
 
 #  define TM_SHARED_READ(var)         (var)
 #  define TM_SHARED_WRITE(var, val)   ({var = val; var;})
@@ -799,4 +843,4 @@
 #  define TM_LOCAL_WRITE_P(var, val)    ({var = val; var;})
 #  define TM_LOCAL_WRITE_F(var, val)    ({var = val; var;})
 
-#endif
+#endif /*TM_H*/

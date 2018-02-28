@@ -1,0 +1,6 @@
+5 1 8 3 kmeans -DUSE_QS
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=gnu++11 -O2 -I../lib -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 -DUSE_QS -c cluster.c -o cluster.o
+../common/Makefile.common:8: recipe for target 'cluster.o' failed
+
+=================================== ERROR BUILDING kmeans -  ====================================
+

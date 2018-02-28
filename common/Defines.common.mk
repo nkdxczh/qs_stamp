@@ -13,9 +13,8 @@ ifeq ($(UNAME_P),x86_64)
     CFLAGS += -mrtm
 endif
 
-CC       := gcc
-CFLAGS   +=  -g -w -pthread -fpermissive
-CFLAGS   += -O2
+CC       := g++
+CFLAGS   +=  -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11
 CFLAGS   += -I$(LIB)
 CPP      := g++
 CPPFLAGS += $(CFLAGS)

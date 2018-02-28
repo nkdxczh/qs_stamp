@@ -153,7 +153,7 @@ extern const float GAUSSIAN_TABLE[31][10];
 # define YADA_ID 8
 # define PADDEDSIZE 32
 
-// # define CPU_LOCKS 4
+ //# define CPU_LOCKS 4
 
 #include "../htm.h"
 

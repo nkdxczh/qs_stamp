@@ -1,12 +1,14 @@
 #!/bin/sh
 rm lib/*.o || true
 
+echo $1 $2 $3 $4 $5 $6
+
 benchmark=$5
 
 macros=$6
 
 processors=$(grep -c ^processor /proc/cpuinfo)
-cores=0
+cores=2
 
 if [[ $processors == 8 ]] ;  then
     cores=4;

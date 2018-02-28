@@ -169,7 +169,13 @@ work (void* argPtr)
 
             /* Update new cluster centers : sum of objects located within */
             AL_LOCK(0);
+
+#ifdef USE_QUEUE
             TM_BEGIN(0);
+#else
+            TM_BEGIN(0);
+#endif
+
             TM_SHARED_WRITE(*new_centers_len[index],
                             TM_SHARED_READ(*new_centers_len[index]) + 1);
             for (j = 0; j < nfeatures; j++) {
@@ -184,7 +190,13 @@ work (void* argPtr)
         /* Update task queue */
         if (start + CHUNK < npoints) {
         	AL_LOCK(1);
+
+#ifdef USE_QUEUE
             TM_BEGIN(1);
+#else
+            TM_BEGIN(1);
+#endif
+
             start = (int)TM_SHARED_READ(global_i);
             TM_SHARED_WRITE(global_i, (start + CHUNK));
             TM_END();
@@ -194,7 +206,13 @@ work (void* argPtr)
     }
 
     AL_LOCK(2);
-    TM_BEGIN(2);
+
+#ifdef USE_QUEUE
+            TM_BEGIN(2);
+#else
+            TM_BEGIN(2);
+#endif
+
     TM_SHARED_WRITE_F(global_delta, TM_SHARED_READ_F(global_delta) + delta);
     TM_END();
 
