@@ -2,7 +2,7 @@
 #include "qs_schunit.h"
 
 #define num_q 3
-#define per_q 4
+#define per_q 1
 
 QS_SchMap sch_map;
 

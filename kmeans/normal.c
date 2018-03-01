@@ -170,8 +170,8 @@ work (void* argPtr)
             /* Update new cluster centers : sum of objects located within */
             AL_LOCK(0);
 
-#ifdef USE_QUEUE
-            TM_BEGIN(0);
+#ifdef USE_QS
+            TM_BEGIN(new_centers_len[index]);
 #else
             TM_BEGIN(0);
 #endif
@@ -191,8 +191,8 @@ work (void* argPtr)
         if (start + CHUNK < npoints) {
         	AL_LOCK(1);
 
-#ifdef USE_QUEUE
-            TM_BEGIN(1);
+#ifdef USE_QS
+            TM_BEGIN(&global_i);
 #else
             TM_BEGIN(1);
 #endif
@@ -207,8 +207,8 @@ work (void* argPtr)
 
     AL_LOCK(2);
 
-#ifdef USE_QUEUE
-            TM_BEGIN(2);
+#ifdef USE_QS
+            TM_BEGIN(&global_delta);
 #else
             TM_BEGIN(2);
 #endif

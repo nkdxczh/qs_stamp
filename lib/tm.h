@@ -334,17 +334,17 @@
 
 #    include "qs_scheduler.h"
 
-/*#    define TM_STARTUP_QS QS_init()
+#    define TM_STARTUP_QS QS_init()
 
 #    define TM_SHUTDOWN_QS QS_end()
 
 #    define TM_INIT_QS(ptr) QS_SchBlock sb(ptr)
 
-#    define TM_COMMIT_QS free(&sb)
+#    define TM_COMMIT_QS
 
-#    define TM_ENQUEUE_QS QS_contention_manage_begin(sb)*/
+#    define TM_ENQUEUE_QS QS_contention_manage_begin(sb)
 
-#    define TM_STARTUP_QS
+/*#    define TM_STARTUP_QS
 
 #    define TM_SHUTDOWN_QS
 
@@ -352,7 +352,7 @@
 
 #    define TM_COMMIT_QS
 
-#    define TM_ENQUEUE_QS
+#    define TM_ENQUEUE_QS*/
 
 #  else /*!USE_QS*/
 
