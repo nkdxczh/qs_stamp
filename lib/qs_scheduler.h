@@ -11,11 +11,11 @@
 
 #include "qs_schunit.h"
 
-#define num_q 5
+#define num_q 1
 #define per_q 1
 #define QS_TRIES 1
 #define QS_WAIT 1
-#define QS_DELAY 100000
+#define QS_DELAY 10000
 
 unsigned QS_hash(void* ptr);
 

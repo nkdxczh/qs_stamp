@@ -55,7 +55,8 @@ void QS_dispatch(int id){
             unit->add();
 
             block->lock.unlock();
-            for(int i = 0; i < QS_DELAY; ++i);
+            //for(int i = 0; i < QS_DELAY; ++i);
+            usleep(10);
             //std::cout << "get:" << block->key << " " << sch_map.get(block->key)->getCount() << " " << sch_map.get(block->key)->getQueue() << std::endl;
         }
 
