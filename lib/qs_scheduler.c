@@ -1,9 +1,6 @@
 #include "qs_scheduler.h"
 #include "qs_schunit.h"
 
-#define num_q 3
-#define per_q 1
-
 QS_SchMap sch_map;
 
 bool QS_terminate = false;
@@ -19,17 +16,27 @@ unsigned QS_hash(void* ptr){
 }
 
 void QS_contention_manage_begin(QS_SchBlock& sb){
+    if(sb.tries >= QS_TRIES)return;
+    else sb.tries++;
 
     QS_SchUnit* unit = sch_map.get(sb.key);
+
     if(unit == NULL)unit = sch_map.create(sb.key, sb.key % num_q);
 
     sb.next = unit->getQueue();
 
     sb.lock.lock();
+    //while(!sb.lock.try_lock());
 
+    //QS_queues[unit->getQueue()]->push(&sb);
     QS_queues[sb.next]->push(&sb);
 
-    sb.lock.lock();
+    if(QS_WAIT == 0){
+        while(!sb.lock.try_lock());
+    }
+    else{
+        sb.lock.lock();
+    }
 
     sb.lock.unlock();
 }
@@ -48,6 +55,7 @@ void QS_dispatch(int id){
             unit->add();
 
             block->lock.unlock();
+            for(int i = 0; i < QS_DELAY; ++i);
             //std::cout << "get:" << block->key << " " << sch_map.get(block->key)->getCount() << " " << sch_map.get(block->key)->getQueue() << std::endl;
         }
 
@@ -55,10 +63,11 @@ void QS_dispatch(int id){
 }
 
 void QS_update(){
-    int interval = 5000;
+    int interval = 1000;
 
     while(!QS_terminate){
         usleep(interval);
+	if(interval == 1000)interval = 10000;
 
         //std::cout << "update" << std::endl;
 

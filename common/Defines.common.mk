@@ -17,6 +17,7 @@ CC       := g++
 CFLAGS   +=  -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11
 CFLAGS   += -O2
 CFLAGS   += -I$(LIB)
+CFLAGS   += -I/home/zhanhaochen/boost/include
 CPP      := g++
 CPPFLAGS += $(CFLAGS)
 LD       := g++

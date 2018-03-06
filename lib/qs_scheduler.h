@@ -11,21 +11,24 @@
 
 #include "qs_schunit.h"
 
-#define num_q 3
-#define per_q 4
+#define num_q 5
+#define per_q 1
+#define QS_TRIES 1
+#define QS_WAIT 1
+#define QS_DELAY 100000
 
 unsigned QS_hash(void* ptr);
 
 class QS_SchBlock{
     public:
-        void* obj;
         std::mutex lock;
         int next;
         unsigned key;
+        int tries;
 
         QS_SchBlock(void* ptr){
-            obj = ptr;
             key = QS_hash(ptr);
+            tries = 0;
         }
 };
 
