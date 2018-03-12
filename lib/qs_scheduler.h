@@ -11,10 +11,10 @@
 
 #include "qs_schunit.h"
 
-#define num_q 1
+#define num_q 3
 #define per_q 1
 #define QS_TRIES 1
-#define QS_WAIT 1
+#define QS_WAIT 0
 #define QS_DELAY 10000
 
 unsigned QS_hash(void* ptr);
@@ -35,6 +35,8 @@ class QS_SchBlock{
 void QS_contention_manage_begin(QS_SchBlock& sb);
 
 void QS_contention_manage_abort(QS_SchBlock& sb, int flag);
+
+void QS_contention_manage_commit(QS_SchBlock& sb);
 
 void QS_dispatch(int id);
 

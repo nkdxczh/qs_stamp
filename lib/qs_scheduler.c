@@ -7,6 +7,8 @@ bool QS_terminate = false;
 int QS_size_q = 100;
 int QS_usage_q = num_q;
 
+bool* QS_block;
+
 boost::lockfree::queue<QS_SchBlock*> **QS_queues;
 
 unsigned QS_hash(void* ptr){
@@ -37,8 +39,8 @@ void QS_contention_manage_begin(QS_SchBlock& sb){
     else{
         sb.lock.lock();
     }
-
     sb.lock.unlock();
+
 }
 
 void QS_contention_manage_abort(QS_SchBlock& sb, int flag){}
@@ -48,15 +50,32 @@ void QS_dispatch(int id){
 
     while(!QS_terminate){
         if(QS_queues[id]->pop(block)){
+            //std::cout << "pop " << id << std::endl;
 
             QS_SchUnit* unit = sch_map.get(block->key);
             if(unit == NULL)unit = sch_map.create(block->key, block->key % num_q);
 
             unit->add();
 
+            //std::cout << "get0 " << QS_block[id] << std::endl;
+            //QS_block[id] = true;
+
             block->lock.unlock();
+
+            if(QS_WAIT == 0){
+                while(!block->lock.try_lock());
+            }
+            else{
+                block->lock.lock();
+            }
+            block->lock.unlock();
+            //std::cout << "get1 " << QS_block[id] << std::endl;
+
+            //while(!QS_terminate){
+            //    if(!QS_block[id])break;
+            //}
+            //usleep(1);
             //for(int i = 0; i < QS_DELAY; ++i);
-            usleep(10);
             //std::cout << "get:" << block->key << " " << sch_map.get(block->key)->getCount() << " " << sch_map.get(block->key)->getQueue() << std::endl;
         }
 
@@ -105,8 +124,15 @@ void QS_update(){
     }
 }
 
+void QS_contention_manage_commit(QS_SchBlock& sb){
+    //QS_block[sb.next] = false;
+    //std::cout << "finish " << sb.next << " " << QS_block[sb.next] << std::endl;
+    sb.lock.unlock();
+}
+
 void QS_init(){
     QS_queues = (boost::lockfree::queue<QS_SchBlock*> **) malloc(sizeof(void*) * num_q);
+    QS_block = (bool*) malloc(sizeof(bool) * num_q);
 
     QS_terminate = false;
 
@@ -116,6 +142,7 @@ void QS_init(){
 
     for(int i = 0; i < num_q; ++i){
         QS_queues[i] = new boost::lockfree::queue<QS_SchBlock*>(QS_size_q);
+        QS_block[i] = false;
     }
 
     updater = new std::thread(QS_update);

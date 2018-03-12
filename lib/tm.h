@@ -340,7 +340,7 @@
 
 #    define TM_INIT_QS(ptr) QS_SchBlock sb(ptr)
 
-#    define TM_COMMIT_QS
+#    define TM_COMMIT_QS QS_contention_manage_commit(sb)
 
 #    define TM_ENQUEUE_QS QS_contention_manage_begin(sb)
 
