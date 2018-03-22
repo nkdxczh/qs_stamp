@@ -456,11 +456,9 @@
         HTM_COMMIT; \
         REGISTER_TM_COMMIT(block_id); \
         myStats->totalTSXTxs++; \
-        TM_COMMIT_QS;\
     } else {    \
         pthread_mutex_unlock(&htm_single_global_lock); \
         myStats->totalSGLTxs++; \
-        TM_COMMIT_QS;\
     } \
     RELEASE_AUX_LOCK; \
     CHECK_RELEASE_TX_LOCKS; \
@@ -473,6 +471,7 @@
     myStats->totalRetries += MAX_ATTEMPTS - tries; \
     myStats->totalAtomicBlocks++; \
   }\
+  TM_COMMIT_QS;\
 };
 
 # define TM_END() \

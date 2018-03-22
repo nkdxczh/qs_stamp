@@ -33,17 +33,19 @@ void QS_contention_manage_begin(QS_SchBlock& sb){
     //QS_queues[unit->getQueue()]->push(&sb);
     QS_queues[sb.next]->push(&sb);
 
-    if(QS_WAIT == 0){
+    /*if(QS_WAIT == 0){
         while(!sb.lock.try_lock());
     }
     else{
         sb.lock.lock();
     }
-    sb.lock.unlock();
+    sb.lock.unlock();*/
+    //sb.dispatcher_lock.lock();
 
 }
 
-void QS_contention_manage_abort(QS_SchBlock& sb, int flag){}
+void QS_contention_manage_abort(QS_SchBlock& sb, int flag){
+}
 
 void QS_dispatch(int id){
     QS_SchBlock* block;
@@ -60,15 +62,15 @@ void QS_dispatch(int id){
             //std::cout << "get0 " << QS_block[id] << std::endl;
             //QS_block[id] = true;
 
-            block->lock.unlock();
+            //block->lock.unlock();
 
-            if(QS_WAIT == 0){
-                while(!block->lock.try_lock());
+            /*if(QS_WAIT == 0){
+                while(!block->dispatcher_lock.try_lock());
             }
             else{
-                block->lock.lock();
+                block->dispatcher_lock.lock();
             }
-            block->lock.unlock();
+            block->dispatcher_lock.unlock();*/
             //std::cout << "get1 " << QS_block[id] << std::endl;
 
             //while(!QS_terminate){
@@ -127,7 +129,7 @@ void QS_update(){
 void QS_contention_manage_commit(QS_SchBlock& sb){
     //QS_block[sb.next] = false;
     //std::cout << "finish " << sb.next << " " << QS_block[sb.next] << std::endl;
-    sb.lock.unlock();
+    sb.dispatcher_lock.unlock();
 }
 
 void QS_init(){
