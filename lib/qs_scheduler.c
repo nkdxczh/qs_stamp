@@ -61,25 +61,25 @@ void QS_dispatch(int id){
             //QS_block[id] = true;
 
             
-            block->dispatcher_lock.lock();
+            //block->dispatcher_lock.lock();
 
-            //QS_locks[id].lock();
+            QS_locks[id].lock();
             block->lock.unlock();
 
-            if(QS_WAIT == 0){
+            /*if(QS_WAIT == 0){
                 while(!block->dispatcher_lock.try_lock());
             }
             else{
                 block->dispatcher_lock.lock();
             }
-            block->dispatcher_lock.unlock();
-            /*if(QS_WAIT == 0){
+            block->dispatcher_lock.unlock();*/
+            if(QS_WAIT == 0){
                 while(!QS_locks[id].try_lock());
             }
             else{
                 QS_locks[id].lock();
             }
-            QS_locks[id].unlock();*/
+            QS_locks[id].unlock();
             //std::cout << "get1 " << QS_block[id] << std::endl;
 
             //while(!QS_terminate){
@@ -136,9 +136,8 @@ void QS_update(){
 }
 
 void QS_contention_manage_commit(QS_SchBlock& sb){
-    //std::cout << "unlock " << sb.next << std::endl;
-    sb.dispatcher_lock.unlock();
-    //QS_locks[sb.next].unlock();
+    //sb.dispatcher_lock.unlock();
+    QS_locks[sb.next].unlock();
 }
 
 void QS_init(){

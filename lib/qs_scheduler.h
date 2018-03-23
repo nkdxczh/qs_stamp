@@ -11,7 +11,7 @@
 
 #include "qs_schunit.h"
 
-#define num_q 1
+#define num_q 2
 #define per_q 1
 #define QS_TRIES 1
 #define QS_WAIT 1
