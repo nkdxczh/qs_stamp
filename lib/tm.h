@@ -344,16 +344,6 @@
 
 #    define TM_ENQUEUE_QS QS_contention_manage_begin(sb)
 
-/*#    define TM_STARTUP_QS
-
-#    define TM_SHUTDOWN_QS
-
-#    define TM_INIT_QS(ptr)
-
-#    define TM_COMMIT_QS
-
-#    define TM_ENQUEUE_QS*/
-
 #  else /*!USE_QS*/
 
 #    define TM_STARTUP_QS
@@ -380,9 +370,9 @@
         int capacity = 0; \
         int number_of_locks = 0; \
         TM_INIT_QS(b);\
+        TM_ENQUEUE_QS;\
         while (1) { \
             tx = 1; \
-            TM_ENQUEUE_QS;\
             if (IS_LOCKED(htm_single_global_lock)) { \
             	if (thread_id == 0) { \
                     myStats->updateStatsCounter++; \
