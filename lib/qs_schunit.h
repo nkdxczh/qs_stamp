@@ -8,7 +8,7 @@
 #include <vector>
 #include <unordered_map>
 
-class QS_SchUnit{
+class __attribute__((__aligned__(64))) QS_SchUnit{
     private:
         std::mutex lock;
         std::atomic<int> count;

@@ -14,25 +14,19 @@ std::mutex *QS_locks;
 
 unsigned QS_hash(void* ptr){
     unsigned res = (long) ptr * 11 % 46591;
-    //printf("hash %ld at %d to %d\n", (long)ptr, QS_usage_q, res);
     return res;
 }
 
 void QS_contention_manage_begin(QS_SchBlock& sb){
-    if(sb.tries >= QS_TRIES)return;
-    else sb.tries++;
-
     QS_SchUnit* unit = sch_map.get(sb.key);
 
     if(unit == NULL)unit = sch_map.create(sb.key, sb.key % num_q);
 
-    sb.next = unit->getQueue();
+    sb.queue = unit->getQueue();
 
     sb.lock.lock();
-    //while(!sb.lock.try_lock());
 
-    //QS_queues[unit->getQueue()]->push(&sb);
-    QS_queues[sb.next]->push(&sb);
+    QS_queues[sb.queue]->push(&sb);
 
     if(QS_WAIT == 0){
         while(!sb.lock.try_lock());
@@ -58,21 +52,9 @@ void QS_dispatch(int id){
 
             unit->add();
 
-            //QS_block[id] = true;
-
-            
-            //block->dispatcher_lock.lock();
-
             QS_locks[id].lock();
             block->lock.unlock();
 
-            /*if(QS_WAIT == 0){
-                while(!block->dispatcher_lock.try_lock());
-            }
-            else{
-                block->dispatcher_lock.lock();
-            }
-            block->dispatcher_lock.unlock();*/
             if(QS_WAIT == 0){
                 while(!QS_locks[id].try_lock());
             }
@@ -80,14 +62,6 @@ void QS_dispatch(int id){
                 QS_locks[id].lock();
             }
             QS_locks[id].unlock();
-            //std::cout << "get1 " << QS_block[id] << std::endl;
-
-            //while(!QS_terminate){
-            //    if(!QS_block[id])break;
-            //}
-            //usleep(1);
-            //for(int i = 0; i < QS_DELAY; ++i);
-            //std::cout << "get:" << block->key << " " << sch_map.get(block->key)->getCount() << " " << sch_map.get(block->key)->getQueue() << std::endl;
         }
 
     }
@@ -137,7 +111,7 @@ void QS_update(){
 
 void QS_contention_manage_commit(QS_SchBlock& sb){
     //sb.dispatcher_lock.unlock();
-    QS_locks[sb.next].unlock();
+    QS_locks[sb.queue].unlock();
 }
 
 void QS_init(){
