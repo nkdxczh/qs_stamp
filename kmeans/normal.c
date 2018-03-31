@@ -171,7 +171,7 @@ work (void* argPtr)
             AL_LOCK(0);
 
 #ifdef USE_QS
-            TM_BEGIN(new_centers_len[index]);
+            TM_BEGIN(new_centers[index]);
 #else
             TM_BEGIN(0);
 #endif

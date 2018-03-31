@@ -65,7 +65,7 @@ void QS_dispatch(int id){
         if(QS_queues[id]->pop(block)){
 #endif
             
-            if(block->key % 10 == 0){
+            if(block->key % 100 == 0){
             	QS_SchUnit* unit = sch_map.get(block->key);
 
             	unit->add();
@@ -82,11 +82,11 @@ void QS_dispatch(int id){
 }
 
 void QS_update(){
-    int interval = 1000;
+    int interval = 100;
 
     while(!QS_terminate){
         usleep(interval);
-	if(interval == 1000)interval = 10000;
+	if(interval == 100)interval = 1000;
 
         std::map<int, std::vector<unsigned>, std::greater<int>>* view = sch_map.getOrderedView();
 
