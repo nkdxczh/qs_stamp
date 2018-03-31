@@ -8,11 +8,13 @@
 #include <vector>
 #include <unordered_map>
 #include <time.h>
+#include <atomic>
+#include <queue>
 
 #include "qs_schunit.h"
 
 //number of queues
-#define num_q 5
+#define num_q 2
 //number of dispatchers per queue
 #define per_q 1
 //lock / try_lock
@@ -20,9 +22,28 @@
 
 unsigned QS_hash(void* ptr);
 
+class __attribute__((__aligned__(64))) QS_lock{
+    private:
+        std::atomic<bool> inner_lock;
+        std::mutex mutex_lock;
+    public:
+        QS_lock(){inner_lock = false;}
+        void lock(){
+            bool expected=false;
+            while(!inner_lock.compare_exchange_weak(expected,true) || expected){
+                expected=false;
+            }
+            //while(!mutex_lock.try_lock());
+        }
+        void unlock(){
+            inner_lock.exchange(false);
+            //mutex_lock.unlock();
+        }
+};
+
 class __attribute__((__aligned__(64))) QS_SchBlock{
     public:
-        std::mutex lock;
+        QS_lock lock;
         int queue;
         //calculated by the input pointer
         unsigned key;

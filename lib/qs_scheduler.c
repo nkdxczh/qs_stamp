@@ -9,10 +9,11 @@ bool QS_terminate = false;
 int QS_size_q = 100;
 int QS_usage_q = num_q;
 
-bool* QS_block;
-
 boost::lockfree::queue<QS_SchBlock*> **QS_queues;
-std::mutex *QS_locks;
+//std::queue<QS_SchBlock*> **QS_queues;
+QS_lock *QS_push_locks;
+
+QS_lock *QS_locks;
 
 unsigned QS_hash(void* ptr){
     unsigned res = (long) ptr * 11 % 46591;
@@ -28,14 +29,12 @@ void QS_contention_manage_begin(QS_SchBlock& sb){
 
     sb.lock.lock();
 
+    //QS_push_locks[sb.queue].lock();
     QS_queues[sb.queue]->push(&sb);
+    //QS_push_locks[sb.queue].unlock();
 
-    if(QS_WAIT == 0){
-        while(!sb.lock.try_lock());
-    }
-    else{
-        sb.lock.lock();
-    }
+    sb.lock.lock();
+
     sb.lock.unlock();
 
 }
@@ -45,28 +44,29 @@ void QS_contention_manage_abort(QS_SchBlock& sb, int flag){
 
 void QS_dispatch(int id){
     QS_SchBlock* block;
+    QS_locks[id].lock();
 
     while(!QS_terminate){
+        //if(!QS_queues[id]->empty()){
         if(QS_queues[id]->pop(block)){
 
-            if(block->key % 10 == 0){
+            /*QS_push_locks[id].lock();
+            block = QS_queues[id]->front();
+            QS_queues[id]->pop();
+            QS_push_locks[id].unlock();*/
+            
+            /*if(block->key % 10 == 0){
             	QS_SchUnit* unit = sch_map.get(block->key);
             	if(unit == NULL)unit = sch_map.create(block->key, block->key % num_q);
 
             	unit->add();
-            }
+            }*/
 
-            QS_locks[id].lock();
 
             block->lock.unlock();
 
-            if(QS_WAIT == 0){
-                while(!QS_locks[id].try_lock());
-            }
-            else{
-                QS_locks[id].lock();
-            }
-            QS_locks[id].unlock();
+            QS_locks[id].lock();
+
         }
 
     }
@@ -117,8 +117,10 @@ void QS_contention_manage_commit(QS_SchBlock& sb){
 
 void QS_init(){
     QS_queues = (boost::lockfree::queue<QS_SchBlock*> **) malloc(sizeof(void*) * num_q);
-    QS_block = (bool*) malloc(sizeof(bool) * num_q);
-    QS_locks = new std::mutex[num_q];
+    //QS_queues = (std::queue<QS_SchBlock*> **) malloc(sizeof(void*) * num_q);
+    QS_push_locks = new QS_lock[num_q];
+
+    QS_locks = new QS_lock[num_q];
 
     QS_terminate = false;
 
@@ -128,11 +130,11 @@ void QS_init(){
 
     for(int i = 0; i < num_q; ++i){
         QS_queues[i] = new boost::lockfree::queue<QS_SchBlock*>(QS_size_q);
-        QS_block[i] = false;
+        //QS_queues[i] = new std::queue<QS_SchBlock*>();
     }
 
-    updater = new std::thread(QS_update);
-    updater->detach();
+    //updater = new std::thread(QS_update);
+    //updater->detach();
 
     for(int i = 0; i < num_q; ++i){
         for(int j = 0; j < per_q; ++j){
@@ -152,4 +154,6 @@ void QS_end(){
     QS_terminate = true;
 
     delete [] QS_queues;
+    delete [] QS_locks;
+    delete [] QS_push_locks;
 }
