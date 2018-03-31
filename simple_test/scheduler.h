@@ -61,19 +61,21 @@ void QS_contention_manage_begin(QS_SchBlock& sb){
     sb.next = sb.key % num_q;
 
     sb.lock.lock();
-    //while(!sb.lock.try_lock());
 
-    //QS_queues[unit->getQueue()]->push(&sb);
-    QS_queues[sb.next]->push(&sb);
+    bool push = QS_queues[sb.next]->push(&sb);
+    //bool push = QS_queues[sb.next]->bounded_push(&sb);
+    //QS_queues[sb.next]->unsynchronized_push(&sb);
 
-    if(QS_WAIT == 0){
-        while(!sb.lock.try_lock())std::this_thread::yield();
-    }
-    else{
-        sb.lock.lock();
+    if(push){
+        if(QS_WAIT == 0){
+            while(!sb.lock.try_lock());
+        }
+        else{
+            sb.lock.lock();
+        }
     }
     sb.lock.unlock();
-
+    delete &sb;
 }
 
 void QS_contention_manage_abort(QS_SchBlock& sb, int flag){
@@ -83,52 +85,34 @@ void QS_dispatch(int id){
     QS_SchBlock* block;
 
     while(!QS_terminate){
-        if(QS_queues[id]->pop(block)){
+        if(!QS_queues[id]->empty()){
+            QS_queues[id]->pop(block);
+            //QS_queues[id]->unsynchronized_pop(block);
 
             /*QS_SchUnit* unit = sch_map.get(block->key);
             if(unit == NULL)unit = sch_map.create(block->key, block->key % num_q);
 
             unit->add();*/
 
-            //QS_block[id] = true;
-
-            
-            //block->dispatcher_lock.lock();
-
-            QS_locks[id].lock();
+            //QS_locks[id].lock();
 
             block->lock.unlock();
+            //std::this_thread::yield();
 
-            if(QS_WAIT == 0){
+            /*if(QS_WAIT == 0){
                 while(!QS_locks[id].try_lock());
             }
             else{
                 QS_locks[id].lock();
             }
-            QS_locks[id].unlock();
+            QS_locks[id].unlock();*/
 
-            /*if(QS_WAIT == 0){
-                while(!block->dispatcher_lock.try_lock());
-            }
-            else{
-                block->dispatcher_lock.lock();
-            }
-            block->dispatcher_lock.unlock();*/
-            //std::cout << "get1 " << QS_block[id] << std::endl;
-
-            //while(!QS_terminate){
-            //    if(!QS_block[id])break;
-            //}
-            //usleep(1);
-            //for(int i = 0; i < QS_DELAY; ++i);
-            //std::cout << "get:" << block->key << " " << sch_map.get(block->key)->getCount() << " " << sch_map.get(block->key)->getQueue() << std::endl;
         }
 
     }
 }
 
 void QS_contention_manage_commit(QS_SchBlock& sb){
-    //sb.dispatcher_lock.unlock();
     QS_locks[sb.next].unlock();
 }
 

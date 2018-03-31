@@ -19,10 +19,10 @@ extern std::mutex gl_lock;
 */
 
 #define SCH_TM_BEGIN(ptr)									\
+        QS_SchBlock* sb = new QS_SchBlock(ptr);\
     {												\
         int tries = 1;      						\
-        QS_SchBlock sb(ptr);\
-        QS_contention_manage_begin(sb);\
+        QS_contention_manage_begin(*sb);\
         while(1){									\
             while(IS_LOCKED(gl_lock)){					\
                 __asm__ ( "pause;" );				\
@@ -58,7 +58,7 @@ extern std::mutex gl_lock;
             gl_lock.unlock();\
             gl_count++;								\
         }\
-        QS_contention_manage_commit(sb); \
     };
+        /*QS_contention_manage_commit(sb);*/ 
 
 #endif // TRANSACTIONS_H

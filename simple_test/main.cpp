@@ -29,7 +29,7 @@ THREAD_MUTEX_T o_lock;
 std::mutex gl_lock;
 
 #define bit_RTM (1 << 11)
-#define v_num 2
+#define v_num 1
 
 int value[v_num];
 //int thread_num = 32;
@@ -57,8 +57,13 @@ void do_work_HTM(){
 void do_work_sch_HTM(){
     for(int i = 0; i < tasks; i++) {
         int k = rand() % v_num;
+        //QS_SchBlock sb(0);
+        //QS_contention_manage_begin(sb);
         SCH_TM_BEGIN(&value[k])
+        //TM_BEGIN
             for(int j = 0; j < 2000; ++j)value[k]++;
+        //TM_END
+        //QS_contention_manage_commit(sb);
         SCH_TM_END
     }
 }

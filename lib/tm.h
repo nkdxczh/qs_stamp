@@ -338,11 +338,11 @@
 
 #    define TM_SHUTDOWN_QS QS_end()
 
-#    define TM_INIT_QS(ptr) QS_SchBlock sb(ptr)
+#    define TM_INIT_QS(ptr) QS_SchBlock* sb = new QS_SchBlock(ptr)
 
-#    define TM_COMMIT_QS QS_contention_manage_commit(sb)
+#    define TM_COMMIT_QS QS_contention_manage_commit(*sb)
 
-#    define TM_ENQUEUE_QS QS_contention_manage_begin(sb)
+#    define TM_ENQUEUE_QS QS_contention_manage_begin(*sb)
 
 #  else /*!USE_QS*/
 
@@ -358,7 +358,10 @@
 
 #  endif /*!USE_QS*/
 
-#  define TM_BEGIN_EXT(b,tx) { \
+#  define TM_BEGIN_EXT(b,tx)  \
+TM_INIT_QS(b);\
+TM_ENQUEUE_QS;\
+{\
         unsigned short acquiredLocks = 0; \
         unsigned short acquiredCpuLock = 0; \
         unsigned short thread_id = myThreadId; \
@@ -369,8 +372,6 @@
         int tries = GET_MAX_ATTEMPTS; \
         int capacity = 0; \
         int number_of_locks = 0; \
-        TM_INIT_QS(b);\
-        TM_ENQUEUE_QS;\
         while (1) { \
             tx = 1; \
             if (IS_LOCKED(htm_single_global_lock)) { \
@@ -461,8 +462,8 @@
     myStats->totalRetries += MAX_ATTEMPTS - tries; \
     myStats->totalAtomicBlocks++; \
   }\
-  TM_COMMIT_QS;\
-};
+};\
+TM_COMMIT_QS;
 
 # define TM_END() \
     TM_END_EXT(tx); \
