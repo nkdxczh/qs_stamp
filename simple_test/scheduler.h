@@ -11,7 +11,6 @@
 
 #define num_q 1
 #define per_q 1
-#define QS_TRIES 1
 #define QS_WAIT 0
 #define QS_DELAY 10000
 
@@ -28,17 +27,15 @@ bool* QS_block;
 std::mutex *QS_locks;
 
 unsigned QS_hash(void* ptr);
-class QS_SchBlock{
+
+class  __attribute__((__aligned__(64))) QS_SchBlock{
     public:
         std::mutex lock;
-        std::mutex dispatcher_lock;
-        int next;
+        int queue;
         unsigned key;
-        int tries;
 
         QS_SchBlock(void* ptr){
             key = QS_hash(ptr);
-            tries = 0;
         }
 };
 
@@ -46,25 +43,18 @@ boost::lockfree::queue<QS_SchBlock*> **QS_queues;
 
 unsigned QS_hash(void* ptr){
     unsigned res = (long) ptr * 11 % 46591;
-    //printf("hash %ld at %d to %d\n", (long)ptr, QS_usage_q, res);
     return res;
 }
 
 void QS_contention_manage_begin(QS_SchBlock& sb){
-    if(sb.tries >= QS_TRIES)return;
-    else sb.tries++;
 
-    /*QS_SchUnit* unit = sch_map.get(sb.key);
+    printf("size:%d\n", sizeof(QS_SchBlock));
 
-    if(unit == NULL)unit = sch_map.create(sb.key, sb.key % num_q);*/
-
-    sb.next = sb.key % num_q;
+    sb.queue = sb.key % num_q;
 
     sb.lock.lock();
 
     bool push = QS_queues[sb.next]->push(&sb);
-    //bool push = QS_queues[sb.next]->bounded_push(&sb);
-    //QS_queues[sb.next]->unsynchronized_push(&sb);
 
     if(push){
         if(QS_WAIT == 0){
@@ -81,6 +71,8 @@ void QS_contention_manage_begin(QS_SchBlock& sb){
 void QS_contention_manage_abort(QS_SchBlock& sb, int flag){
 }
 
+
+
 void QS_dispatch(int id){
     QS_SchBlock* block;
 
@@ -94,7 +86,7 @@ void QS_dispatch(int id){
 
             unit->add();*/
 
-            //QS_locks[id].lock();
+            QS_locks[id].lock();
 
             block->lock.unlock();
             //std::this_thread::yield();
@@ -113,7 +105,7 @@ void QS_dispatch(int id){
 }
 
 void QS_contention_manage_commit(QS_SchBlock& sb){
-    QS_locks[sb.next].unlock();
+    QS_locks[sb.queue].unlock();
 }
 
 void QS_init(){

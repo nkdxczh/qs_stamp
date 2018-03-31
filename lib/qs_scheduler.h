@@ -11,9 +11,12 @@
 
 #include "qs_schunit.h"
 
-#define num_q 32
+//number of queues
+#define num_q 5
+//number of dispatchers per queue
 #define per_q 1
-#define QS_WAIT 0
+//lock / try_lock
+#define QS_WAIT 1
 
 unsigned QS_hash(void* ptr);
 
@@ -21,6 +24,7 @@ class __attribute__((__aligned__(64))) QS_SchBlock{
     public:
         std::mutex lock;
         int queue;
+        //calculated by the input pointer
         unsigned key;
 
         QS_SchBlock(void* ptr){

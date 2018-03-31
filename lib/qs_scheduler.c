@@ -29,7 +29,6 @@ void QS_contention_manage_begin(QS_SchBlock& sb){
     sb.lock.lock();
 
     QS_queues[sb.queue]->push(&sb);
-    //QS_queues[sb.queue]->bounded_push(&sb);
 
     if(QS_WAIT == 0){
         while(!sb.lock.try_lock());

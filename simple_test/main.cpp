@@ -33,7 +33,7 @@ std::mutex gl_lock;
 
 int value[v_num];
 //int thread_num = 32;
-int thread_num = 1;
+int thread_num = 2;
 int tasks = 2000;
 
 int check_rtm_support() {
