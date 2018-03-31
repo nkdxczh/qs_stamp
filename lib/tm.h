@@ -36,12 +36,14 @@
 #  define TM_ARGDECL_ALONE              /* nothing */
 #  define TM_CALLABLE                   /* nothing */
 
+#define PRINT_ALL false
+
 #  define TM_STARTUP(numThread, bId){ \
-	printf("Starting benchmark ID %d\n", bId); \
+	if(PRINT_ALL)printf("Starting benchmark ID %d\n", bId); \
 	benchmarkId = bId; \
 	MAX_ATTEMPTS = TOTAL_ATTEMPTS; \
 	APRIORI_ATTEMPTS = APRIORI_LOCK_ATTEMPTS; \
-	printf("AttemptsBeforeGlobalLock = %d\nAPrioriLockAttempts = %d\n",MAX_ATTEMPTS, APRIORI_ATTEMPTS); \
+	if(PRINT_ALL)printf("AttemptsBeforeGlobalLock = %d\nAPrioriLockAttempts = %d\n",MAX_ATTEMPTS, APRIORI_ATTEMPTS); \
         TM_STARTUP_QS;\
    }
 
@@ -112,6 +114,7 @@
        updateStatsCounter += statistics[t].updateStatsCounter; \
        cyclesWaiting += statistics[t].cyclesWaiting; \
      } \
+     if(PRINT_ALL){\
      printf("cyclesWaiting %lu\n", cyclesWaiting); \
      printf("totalAborts %ld\n", totalAborts); \
      printf("abortedTxs %ld\n", abortedTxs); \
@@ -141,6 +144,12 @@
        printf(" %ld", totalTSXTxsAcquiredLock[k]); \
      } \
      printf("\n"); \
+     }\
+     else{\
+     printf("%ld\n", totalAtomicBlocks); \
+     printf("%ld\n", totalTSXTxs); \
+     printf("%ld\n", conflictAbort); \
+     }\
      PRINT_SEER_STATISTICS; \
    }
 

@@ -9,8 +9,11 @@ bool QS_terminate = false;
 int QS_size_q = 100;
 int QS_usage_q = num_q;
 
+#ifdef USE_STD
+std::queue<QS_SchBlock*> **QS_queues;
+#else
 boost::lockfree::queue<QS_SchBlock*> **QS_queues;
-//std::queue<QS_SchBlock*> **QS_queues;
+#endif
 QS_lock *QS_push_locks;
 
 QS_lock *QS_locks;
@@ -29,9 +32,13 @@ void QS_contention_manage_begin(QS_SchBlock& sb){
 
     sb.lock.lock();
 
-    //QS_push_locks[sb.queue].lock();
+#ifdef USE_STD
+    QS_push_locks[sb.queue].lock();
     QS_queues[sb.queue]->push(&sb);
-    //QS_push_locks[sb.queue].unlock();
+    QS_push_locks[sb.queue].unlock();
+#else
+    QS_queues[sb.queue]->push(&sb);
+#endif
 
     sb.lock.lock();
 
@@ -47,20 +54,22 @@ void QS_dispatch(int id){
     QS_locks[id].lock();
 
     while(!QS_terminate){
-        //if(!QS_queues[id]->empty()){
-        if(QS_queues[id]->pop(block)){
+#ifdef USE_STD
+        if(!QS_queues[id]->empty()){
 
-            /*QS_push_locks[id].lock();
+            //QS_push_locks[id].lock();
             block = QS_queues[id]->front();
             QS_queues[id]->pop();
-            QS_push_locks[id].unlock();*/
+            //QS_push_locks[id].unlock();
+#else
+        if(QS_queues[id]->pop(block)){
+#endif
             
-            /*if(block->key % 10 == 0){
+            if(block->key % 10 == 0){
             	QS_SchUnit* unit = sch_map.get(block->key);
-            	if(unit == NULL)unit = sch_map.create(block->key, block->key % num_q);
 
             	unit->add();
-            }*/
+            }
 
 
             block->lock.unlock();
@@ -116,8 +125,11 @@ void QS_contention_manage_commit(QS_SchBlock& sb){
 }
 
 void QS_init(){
+#ifdef USE_STD
+    QS_queues = (std::queue<QS_SchBlock*> **) malloc(sizeof(void*) * num_q);
+#else
     QS_queues = (boost::lockfree::queue<QS_SchBlock*> **) malloc(sizeof(void*) * num_q);
-    //QS_queues = (std::queue<QS_SchBlock*> **) malloc(sizeof(void*) * num_q);
+#endif
     QS_push_locks = new QS_lock[num_q];
 
     QS_locks = new QS_lock[num_q];
@@ -129,12 +141,15 @@ void QS_init(){
     std::thread* updater;
 
     for(int i = 0; i < num_q; ++i){
+#ifdef USE_STD
+        QS_queues[i] = new std::queue<QS_SchBlock*>();
+#else
         QS_queues[i] = new boost::lockfree::queue<QS_SchBlock*>(QS_size_q);
-        //QS_queues[i] = new std::queue<QS_SchBlock*>();
+#endif
     }
 
-    //updater = new std::thread(QS_update);
-    //updater->detach();
+    updater = new std::thread(QS_update);
+    updater->detach();
 
     for(int i = 0; i < num_q; ++i){
         for(int j = 0; j < per_q; ++j){

@@ -322,7 +322,7 @@ for (; repeats > 0; --repeats) {
     free(cluster_centres);
     free(buf);
 
-    printf("Time: %lg seconds\n", global_time);
+    if(PRINT_ALL)printf("Time: %lg seconds\n", global_time);
 
     TM_SHUTDOWN();
 

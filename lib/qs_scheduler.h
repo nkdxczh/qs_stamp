@@ -14,18 +14,19 @@
 #include "qs_schunit.h"
 
 //number of queues
-#define num_q 2
+#ifndef num_q
+#define num_q 30
+#endif
+
 //number of dispatchers per queue
 #define per_q 1
-//lock / try_lock
-#define QS_WAIT 1
 
 unsigned QS_hash(void* ptr);
 
 class __attribute__((__aligned__(64))) QS_lock{
     private:
         std::atomic<bool> inner_lock;
-        std::mutex mutex_lock;
+        //std::mutex mutex_lock;
     public:
         QS_lock(){inner_lock = false;}
         void lock(){

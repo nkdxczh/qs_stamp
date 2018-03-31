@@ -1,14 +1,13 @@
 #!/bin/sh
 rm lib/*.o || true
 
-echo $1 $2 $3 $4 $5 $6
-
 benchmark=$5
 
 macros=$6
 
 processors=$(grep -c ^processor /proc/cpuinfo)
 cores=2
+
 
 if [[ $processors == 8 ]] ;  then
     cores=4;
@@ -28,7 +27,16 @@ do
     cd $F
     rm *.o || true
     rm $F
-    make -f Makefile CPU_LOCKS="-DCPU_LOCKS=$cores" HTM_RETRIES="-DHTM_RETRIES=$1" TOTAL_ATTEMPTS="-DTOTAL_ATTEMPTS=$1" APRIORI_LOCK_ATTEMPTS="-DAPRIORI_LOCK_ATTEMPTS=$2" NUMBER_THREADS="-DNUMBER_THREADS=$3" NUMBER_ATOMIC_BLOCKS="-DNUMBER_ATOMIC_BLOCKS=$4" MACROS="$macros" 
+
+    if [ $# -eq 7 ]
+    then
+        make -f Makefile CPU_LOCKS="-DCPU_LOCKS=$cores" HTM_RETRIES="-DHTM_RETRIES=$1" TOTAL_ATTEMPTS="-DTOTAL_ATTEMPTS=$1" APRIORI_LOCK_ATTEMPTS="-DAPRIORI_LOCK_ATTEMPTS=$2" NUMBER_THREADS="-DNUMBER_THREADS=$3" NUMBER_ATOMIC_BLOCKS="-DNUMBER_ATOMIC_BLOCKS=$4" MACROS="$macros -Dnum_q=$7"
+    fi
+    if [ $# -ne 7 ]
+    then
+        make -f Makefile CPU_LOCKS="-DCPU_LOCKS=$cores" HTM_RETRIES="-DHTM_RETRIES=$1" TOTAL_ATTEMPTS="-DTOTAL_ATTEMPTS=$1" APRIORI_LOCK_ATTEMPTS="-DAPRIORI_LOCK_ATTEMPTS=$2" NUMBER_THREADS="-DNUMBER_THREADS=$3" NUMBER_ATOMIC_BLOCKS="-DNUMBER_ATOMIC_BLOCKS=$4" MACROS="$macros"
+    fi
+
     rc=$?
     if [[ $rc != 0 ]] ; then
 	echo ""
