@@ -8,12 +8,15 @@ set rmargin at screen 0.9
 
 set bmargin at screen gap
 set tmargin at screen gap+h 
-plot "time" with linespoints ls 1
+plot "time" with linespoints ls 1 title "RTM time", \
+"old_time" with linespoints ls 2 title "QS time"
 
 set bmargin at screen 2*gap+h
 set tmargin at screen 2*gap+2*h
-plot "tx" with linespoints ls 2
+plot "tx" with linespoints ls 1 title "RTM tx rate", \
+"old_tx" with linespoints ls 2 title "QS tx rate"
 
 set bmargin at screen 3*gap+2*h
 set tmargin at screen 3*gap+3*h
-plot "conflict" with linespoints ls 3
+plot "conflict" with linespoints ls 1 title "RTM conflicts", \
+"old_conflict" with linespoints ls 2 title "QS conflicts"
