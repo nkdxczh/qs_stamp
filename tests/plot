@@ -1,0 +1,19 @@
+set multiplot
+
+gap = 0.05
+h = 0.28
+
+set lmargin at screen 0.1 
+set rmargin at screen 0.9
+
+set bmargin at screen gap
+set tmargin at screen gap+h 
+plot "time" with linespoints ls 1
+
+set bmargin at screen 2*gap+h
+set tmargin at screen 2*gap+2*h
+plot "tx" with linespoints ls 2
+
+set bmargin at screen 3*gap+2*h
+set tmargin at screen 3*gap+3*h
+plot "conflict" with linespoints ls 3
