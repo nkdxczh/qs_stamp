@@ -1,0 +1,706 @@
+
+------
+1
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+64.157062
+1.000000
+25419
+------
+1
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+64.137208
+1.000000
+50666
+------
+1
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+59.658893
+1.000000
+29058
+------
+3
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+22.225150
+0.993289
+10240649
+------
+3
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+25.657240
+0.993821
+10920501
+------
+3
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=3 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+30.633123
+0.995478
+10753614
+------
+5
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+------
+5
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+13.838886
+0.975055
+11941192
+------
+5
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=5 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+11.900394
+0.978623
+9488444
+------
+7
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+11.821029
+0.959069
+14994533
+------
+7
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+------
+7
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=7 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+14.080678
+0.961357
+17678554
+------
+9
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+9.540539
+0.967279
+13864152
+------
+9
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+8.637126
+0.960849
+13962951
+------
+9
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=9 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+8.206002
+0.963504
+13160802
+------
+11
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+7.789846
+0.868915
+18434247
+------
+11
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+8.605131
+0.888153
+19195284
+------
+11
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=11 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+7.341859
+0.866497
+17459806
+------
+13
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+6.571363
+0.930616
+14189781
+------
+13
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+6.224668
+0.918677
+14371654
+------
+13
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=13 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+5.881515
+0.918702
+13686324
+------
+15
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+6.997095
+0.906610
+18733659
+------
+15
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+5.643973
+0.902815
+15727545
+------
+15
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=15 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+7.020810
+0.924746
+17057839
+------
+17
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+6.426434
+0.810387
+19252416
+------
+17
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+------
+17
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=17 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+5.455629
+0.808464
+16759547
+------
+19
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+9.536210
+0.869569
+28912040
+------
+19
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+------
+19
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=19 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+7.315144
+0.881557
+20819714
+------
+21
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+7.329947
+0.896290
+20733861
+------
+21
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+4.696672
+0.916641
+11574314
+------
+21
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=21 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+4.746854
+0.878894
+14954795
+------
+23
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+6.260028
+0.875526
+15910836
+------
+23
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+6.492421
+0.782072
+22105943
+------
+23
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=23 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+5.253319
+0.777634
+17998328
+------
+25
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+10.131352
+0.889701
+28054919
+------
+25
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+7.343701
+0.887263
+21605505
+------
+25
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=25 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+7.939066
+0.870141
+25435872
+------
+27
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+5.566908
+0.913738
+13026983
+------
+27
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+9.947835
+0.883379
+29091067
+------
+27
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=27 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+4.657528
+0.882895
+13373081
+------
+29
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+7.315974
+0.881135
+19400605
+------
+29
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+------
+29
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=29 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+6.507418
+0.810622
+21452373
+------
+31
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+6.287328
+0.858255
+20247398
+------
+31
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+8.702528
+0.884398
+24630985
+------
+31
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c cluster.c -o cluster.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c common.c -o common.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c kmeans.c -o kmeans.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c normal.c -o normal.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DOUTPUT_TO_STDOUT -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=31 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_QS" -Dnum_q=24 -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm cluster.o common.o kmeans.o normal.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o kmeans
+5.549939
+0.850294
+18371368

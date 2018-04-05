@@ -413,6 +413,7 @@ int repeats = global_params[PARAM_REPEATS];
 
 for (; repeats > 0; --repeats) {
 
+    printf("-------\n");
 
     managerPtr = initializeManager();
     assert(managerPtr != NULL);
@@ -431,7 +432,7 @@ PRINT_STATS();
 time_total += time_tmp;
 }
 
-    printf("Time = %0.6lf\n",
+    if(PRINT_ALL)printf("Time = %0.6lf\n",
            time_total);
     checkTables(managerPtr);
 

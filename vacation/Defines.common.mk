@@ -30,7 +30,9 @@ SRCS += \
         $(LIB)/hashtable.c \
         $(LIB)/conc_hashtable.c \
 	$(LIB)/thread.c \
-        $(LIB)/memory.c
+        $(LIB)/memory.c \
+    $(LIB)/qs_scheduler.c \
+	$(LIB)/qs_schunit.c \
 #
 OBJS := ${SRCS:.c=.o}
 

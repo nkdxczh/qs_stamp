@@ -212,7 +212,13 @@ processPackets (void* argPtr)
 	int i;
 	int lim = 10000;
         AL_LOCK(0);
+
+#ifdef USE_QS
+        TM_BEGIN(streamPtr);
+#else
         TM_BEGIN(1);
+#endif
+
         bytes = TMSTREAM_GETPACKET(streamPtr);
         TM_END();
         if (!bytes) {
@@ -222,9 +228,15 @@ processPackets (void* argPtr)
         packet_t* packetPtr = (packet_t*)bytes;
         long flowId = packetPtr->flowId;
 
-        error_t error;
+        error_t_local error;
         AL_LOCK(0);
+
+#ifdef USE_QS
+        TM_BEGIN(decoderPtr);
+#else
         TM_BEGIN(2);
+#endif
+
         error = TMDECODER_PROCESS(decoderPtr,
                                   bytes,
                                   (PACKET_HEADER_LENGTH + packetPtr->length));
@@ -241,11 +253,17 @@ processPackets (void* argPtr)
         char* data;
         long decodedFlowId;
         AL_LOCK(0);
+
+#ifdef USE_QS
+        TM_BEGIN(decoderPtr);
+#else
         TM_BEGIN(0);
+#endif
+
         data = TMDECODER_GETCOMPLETE(decoderPtr, &decodedFlowId);
         TM_END();
         if (data) {
-            error_t error = PDETECTOR_PROCESS(detectorPtr, data);
+            error_t_local error = PDETECTOR_PROCESS(detectorPtr, data);
             P_FREE(data);
             if (error) {
                 bool_t status = PVECTOR_PUSHBACK(errorVectorPtr,
@@ -294,7 +312,9 @@ MAIN(argc, argv)
 
 double time_total = 0.0;
 int repeats = global_params[PARAM_REPEAT];
+if(repeats <= 1)repeats=1;
 for (; repeats > 0; --repeats) {
+    printf("--------\n");
 
     dictionary_t* dictionaryPtr = dictionary_alloc();
     assert(dictionaryPtr);
@@ -373,7 +393,7 @@ time_total += time_tmp;
 
 }
 
-printf("Elapsed time    = %f seconds\n", time_total);
+if(PRINT_ALL)printf("Elapsed time    = %f seconds\n", time_total);
 
     TM_SHUTDOWN();
     P_MEMORY_SHUTDOWN();

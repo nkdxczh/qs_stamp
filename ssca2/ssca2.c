@@ -80,7 +80,9 @@ MAIN(argc, argv)
 
 double time_total = 0.0;
 int repeat = REPEATS;
+if(repeat < 1)repeat = 1;
 for (; repeat > 0; --repeat) {
+    printf("-----\n");
 
     SDGdata = (graphSDG*)malloc(sizeof(graphSDG));
     assert(SDGdata);
@@ -363,7 +365,7 @@ TIMER_T stop;
 
 #endif /* ENABLE_KERNEL4 */
 
-    printf("\nTime taken for all is %9.6f sec.\n\n", totalTime);
+    if(PRINT_ALL)printf("\nTime taken for all is %9.6f sec.\n\n", totalTime);
 
     /* -------------------------------------------------------------------------
      * Cleanup

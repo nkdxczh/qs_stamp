@@ -26,6 +26,9 @@ SRCS += \
         $(LIB)/conc_hashtable.c \
 	$(LIB)/thread.c \
 	$(LIB)/vector.c \
+	$(LIB)/qs_scheduler.c \
+	$(LIB)/qs_schunit.c \
+
 #
 OBJS := ${SRCS:.c=.o}
 

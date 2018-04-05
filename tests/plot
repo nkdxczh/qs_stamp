@@ -1,22 +1,36 @@
+clear
+reset
 set multiplot
 
 gap = 0.05
-h = 0.28
+h = 0.265
+d = "queue"
 
 set lmargin at screen 0.1 
 set rmargin at screen 0.9
 
 set bmargin at screen gap
 set tmargin at screen gap+h 
-plot "time" with linespoints ls 1 title "RTM time", \
-"old_time" with linespoints ls 2 title "QS time"
+
+set ylabel "time"
+
+plot d."/qs_time" with linespoints ls 1 title "QS time", \
+"" using 1:2:3:4 with yerr, \
+d."/rtm_time" with linespoints ls 2 title "RTM time", \
+"" using 1:2:3:4 w yerr
+
+set ylabel "probability of transactions commit without gl"
 
 set bmargin at screen 2*gap+h
 set tmargin at screen 2*gap+2*h
-plot "tx" with linespoints ls 1 title "RTM tx rate", \
-"old_tx" with linespoints ls 2 title "QS tx rate"
+plot d."/qs_tx" with linespoints ls 1 title "QS tx rate", \
+d."/rtm_tx" with linespoints ls 2 title "RTM tx rate"
+
+set title "queue test, 30 threads, 5 retreis, 40 clusters"
+
+set ylabel "conflicts count"
 
 set bmargin at screen 3*gap+2*h
 set tmargin at screen 3*gap+3*h
-plot "conflict" with linespoints ls 1 title "RTM conflicts", \
-"old_conflict" with linespoints ls 2 title "QS conflicts"
+plot d."/qs_conflict" with linespoints ls 1 title "QS conflicts", \
+d."/rtm_conflict" with linespoints ls 2 title "RTM conflicts"

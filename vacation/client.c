@@ -191,7 +191,12 @@ client_run (void* argPtr)
                 }
                 bool_t isFound = FALSE;
                 AL_LOCK(0);
+#ifdef USE_QS
+                TM_BEGIN(managerPtr);
+#else
                 TM_BEGIN(0);
+#endif
+
                 for (n = 0; n < numQuery; n++) {
                     long t = types[n];
                     long id = ids[n];
@@ -243,7 +248,11 @@ client_run (void* argPtr)
             case ACTION_DELETE_CUSTOMER: {
                 long customerId = random_generate(randomPtr) % queryRange + 1;
                 AL_LOCK(0);
+#ifdef USE_QS
+                TM_BEGIN(managerPtr);
+#else
                 TM_BEGIN(1);
+#endif
                 long bill = MANAGER_QUERY_CUSTOMER_BILL(managerPtr, customerId);
                 if (bill >= 0) {
                     MANAGER_DELETE_CUSTOMER(managerPtr, customerId);
@@ -265,7 +274,11 @@ client_run (void* argPtr)
                     }
                 }
                 AL_LOCK(0);
+#ifdef USE_QS
+                TM_BEGIN(managerPtr);
+#else
                 TM_BEGIN(2);
+#endif
                 for (n = 0; n < numUpdate; n++) {
                     long t = types[n];
                     long id = ids[n];

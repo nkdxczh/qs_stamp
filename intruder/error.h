@@ -83,7 +83,7 @@ typedef enum error {
     ERROR_INCOMPLETE  = 6,
     ERROR_SIGNATURE   = 7,
     NUM_ERROR
-} error_t;
+} error_t_local;
 
 
 #endif /* ERROR_H */

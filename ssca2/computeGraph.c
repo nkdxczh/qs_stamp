@@ -181,7 +181,11 @@ computeGraph (void* argPtr)
     }
 
     AL_LOCK(0);
+#ifdef USE_QS
+    TM_BEGIN(&global_maxNumVertices);
+#else
     TM_BEGIN(0);
+#endif
     long tmp_maxNumVertices = (long)TM_SHARED_READ(global_maxNumVertices);
     long new_maxNumVertices = MAX(tmp_maxNumVertices, maxNumVertices) + 1;
     TM_SHARED_WRITE(global_maxNumVertices, new_maxNumVertices);
@@ -298,7 +302,11 @@ computeGraph (void* argPtr)
     thread_barrier_wait();
 
     AL_LOCK(0);
+#ifdef USE_QS
+    TM_BEGIN(&global_outVertexListSize);
+#else
     TM_BEGIN(1);
+#endif
     TM_SHARED_WRITE(
         global_outVertexListSize,
         ((long)TM_SHARED_READ(global_outVertexListSize) + outVertexListSize)
@@ -475,7 +483,11 @@ computeGraph (void* argPtr)
             }
             if (k == GPtr->outVertexIndex[v]+GPtr->outDegree[v]) {
             	AL_LOCK(0);
-                TM_BEGIN(2);
+#ifdef USE_QS
+    TM_BEGIN(&GPtr->inDegree[v]);
+#else
+    TM_BEGIN(2);
+#endif
                 /* Add i to the impliedEdgeList of v */
                 long inDegree = (long)TM_SHARED_READ(GPtr->inDegree[v]);
                 TM_SHARED_WRITE(GPtr->inDegree[v], (inDegree + 1));

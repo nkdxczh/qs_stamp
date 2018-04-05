@@ -289,7 +289,12 @@ sequencer_run (void* argPtr)
 if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK_STEP1); }
     for (i = i_start; i < i_stop; i+=CHUNK_STEP1) {
     	AL_LOCK(0);
+
+#ifdef USE_QS        
+        TM_BEGIN(uniqueSegmentsPtr);
+#else
         TM_BEGIN(0);
+#endif
         {
             long ii;
             long ii_stop = MIN(i_stop, (i+CHUNK_STEP1));
@@ -369,7 +374,11 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
 
             /* Find an empty constructEntries entry */
             AL_LOCK(0);
+#ifdef USE_QS        
+            TM_BEGIN(&constructEntries[entryIndex]);
+#else
             TM_BEGIN(1);
+#endif
             while (((void*)TM_SHARED_READ_P(constructEntries[entryIndex].segment)) != NULL) {
                 entryIndex = (entryIndex + 1) % numUniqueSegment; /* look for empty */
             }
@@ -396,7 +405,11 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
                 startHash = (ulong_t)segment[j-1] +
                             (startHash << 6) + (startHash << 16) - startHash;
                 AL_LOCK(0);
+#ifdef USE_QS        
+                TM_BEGIN(startHashToConstructEntryTables[j]);
+#else
                 TM_BEGIN(2);
+#endif
                 status = TMTABLE_INSERT(startHashToConstructEntryTables[j],
                                         (ulong_t)startHash,
                                         (void*)constructEntryPtr );
@@ -410,7 +423,11 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
             startHash = (ulong_t)segment[j-1] +
                         (startHash << 6) + (startHash << 16) - startHash;
             AL_LOCK(0);
+#ifdef USE_QS        
+            TM_BEGIN(hashToConstructEntryTable);
+#else
             TM_BEGIN(3);
+#endif
             status = TMTABLE_INSERT(hashToConstructEntryTable,
                                     (ulong_t)startHash,
                                     (void*)constructEntryPtr);
@@ -479,7 +496,11 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
 
                 /* endConstructEntryPtr is local except for properties startPtr/endPtr/length */
                 AL_LOCK(0);
+#ifdef USE_QS        
+                TM_BEGIN(startConstructEntryPtr->isStart);
+#else
                 TM_BEGIN(4);
+#endif
 
                 /* Check if matches */
                 if (TM_SHARED_READ(startConstructEntryPtr->isStart) &&

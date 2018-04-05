@@ -82,11 +82,11 @@ void QS_dispatch(int id){
 }
 
 void QS_update(){
-    int interval = 100;
+    int interval = 1e6;
 
     while(!QS_terminate){
         usleep(interval);
-	if(interval == 100)interval = 1000;
+	//if(interval == 1e5)interval = 1e8;
 
         std::map<int, std::vector<unsigned>, std::greater<int>>* view = sch_map.getOrderedView();
 
@@ -97,6 +97,7 @@ void QS_update(){
             int count = it.first;
             for(const auto& vit : it.second){
                 auto item = sch_map.get(vit);
+                if(item == NULL)continue;
                 item->setQueue(idx);
                 item->reset();
                 if(forward){

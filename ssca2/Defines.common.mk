@@ -21,6 +21,8 @@ SRCS += \
 	$(LIB)/mt19937ar.c \
 	$(LIB)/random.c \
 	$(LIB)/thread.c \
+	$(LIB)/qs_scheduler.c \
+	$(LIB)/qs_schunit.c \
 #
 OBJS := ${SRCS:.c=.o}
 

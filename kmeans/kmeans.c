@@ -209,6 +209,7 @@ MAIN(argc, argv)
     thread_startup(nthreads);
 
 for (; repeats > 0; --repeats) {
+    printf("------\n");
 
     numAttributes = 0;
     numObjects = 0;

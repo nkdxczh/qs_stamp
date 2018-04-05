@@ -212,6 +212,7 @@ MAIN (argc,argv)
 double time_total = 0.0;
 int repeat = global_params[PARAM_REPEAT];
 for (; repeat > 0; --repeat) {
+    printf("-------------\n");
 
     random_t* randomPtr = random_alloc();
     assert(randomPtr != NULL);
@@ -245,6 +246,7 @@ for (; repeat > 0; --repeat) {
 //    printf("Time = %lf\n", TIMER_DIFF_SECONDS(start, stop));
     double tmp_time = TIMER_DIFF_SECONDS(start, stop);
     time_total += tmp_time;
+if(!PRINT_ALL)printf("%lf\n", time_total);
 PRINT_STATS();
 //    fflush(stdout);
 
@@ -273,6 +275,7 @@ PRINT_STATS();
 
 }
 
+
     TM_SHUTDOWN();
     P_MEMORY_SHUTDOWN();
 
@@ -280,7 +283,7 @@ PRINT_STATS();
 
     thread_shutdown();
 
-printf("Time = %lf\n", time_total);
+if(PRINT_ALL)printf("Time = %lf\n", time_total);
 
     MAIN_RETURN(0);
 }

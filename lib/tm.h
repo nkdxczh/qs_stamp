@@ -148,7 +148,9 @@
      else{\
      float rate = (float)totalTSXTxs / totalAtomicBlocks;\
      printf("%f\n", rate);\
-     printf("%ld\n", conflictAbort); \
+     rate = (float) conflictAbort / (conflictAbort + totalAtomicBlocks);\
+     rate = (float) totalRetries / (totalRetries + totalAtomicBlocks);\
+     printf("%f\n", rate);\
      }\
      PRINT_SEER_STATISTICS; \
    }

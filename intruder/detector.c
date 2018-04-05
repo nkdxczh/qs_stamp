@@ -170,7 +170,7 @@ detector_addPreprocessor (detector_t* detectorPtr, preprocessor_t p)
  * detector_process
  * =============================================================================
  */
-error_t
+error_t_local
 detector_process (detector_t* detectorPtr, char* str)
 {
     /*

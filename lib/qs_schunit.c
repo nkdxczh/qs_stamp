@@ -19,7 +19,12 @@ void QS_SchUnit::setQueue(int q){
 }
 
 QS_SchUnit* QS_SchMap::get(unsigned key){
-    std::unordered_map<unsigned,QS_SchUnit*>::const_iterator it = map.find(key);
+    std::unordered_map<unsigned,QS_SchUnit*>::const_iterator it;
+    try{
+        it = map.find(key);
+    }catch(const std::exception& e){
+        return NULL;
+    }
 
     if(it == map.end()){
         return NULL;

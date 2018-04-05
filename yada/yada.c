@@ -208,7 +208,11 @@ process ()
         element_t* elementPtr;
 
         AL_LOCK(0);
+#ifdef USE_QS
+        TM_BEGIN(workHeapPtr);
+#else
         TM_BEGIN(0);
+#endif
         elementPtr = TMHEAP_REMOVE(workHeapPtr);
         TM_END();
         if (elementPtr == NULL) {
@@ -217,7 +221,11 @@ process ()
 
         bool_t isGarbage;
         AL_LOCK(0);
+#ifdef USE_QS
+        TM_BEGIN(elementPtr);
+#else
         TM_BEGIN(1);
+#endif
         isGarbage = TMELEMENT_ISGARBAGE(elementPtr);
         TM_END();
         if (isGarbage) {
@@ -231,13 +239,21 @@ process ()
         long numAdded;
 
         AL_LOCK(0);
+#ifdef USE_QS
+        TM_BEGIN(regionPtr);
+#else
         TM_BEGIN(2);
+#endif
         PREGION_CLEARBAD(regionPtr);
         numAdded = TMREGION_REFINE(regionPtr, elementPtr, meshPtr);
         TM_END();
 
         AL_LOCK(0);
+#ifdef USE_QS
+        TM_BEGIN(elementPtr);
+#else
         TM_BEGIN(3);
+#endif
         TMELEMENT_SETISREFERENCED(elementPtr, FALSE);
         isGarbage = TMELEMENT_ISGARBAGE(elementPtr);
         TM_END();
@@ -251,7 +267,11 @@ process ()
         totalNumAdded += numAdded;
 
         AL_LOCK(0);
+#ifdef USE_QS
+        TM_BEGIN(regionPtr);
+#else
         TM_BEGIN(4);
+#endif
         TMREGION_TRANSFERBAD(regionPtr, workHeapPtr);
         TM_END();
 
@@ -260,7 +280,11 @@ process ()
     }
 
     AL_LOCK(0);
+#ifdef USE_QS
+    TM_BEGIN(&global_totalNumAdded);
+#else
     TM_BEGIN(5);
+#endif
     TM_SHARED_WRITE(global_totalNumAdded,
                     TM_SHARED_READ(global_totalNumAdded) + totalNumAdded);
     TM_SHARED_WRITE(global_numProcess,
@@ -299,6 +323,7 @@ MAIN(argc, argv)
 int repeat = global_repeats;
 double time_total = 0.0;
 for (; repeat > 0; --repeat) {
+    printf("-------\n");
 
     global_meshPtr = mesh_alloc();
     assert(global_meshPtr);
@@ -320,8 +345,7 @@ PRINT_STATS();
 time_total += time_tmp;
 
 }
-    printf("Elapsed time                    = %0.3lf\n",
-           time_total);
+    //if(PRINT_ALL)printf("Elapsed time = %0.3lf\n",time_total);
     fflush(stdout);
 
     TM_SHUTDOWN();

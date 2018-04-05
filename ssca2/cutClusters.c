@@ -530,7 +530,11 @@ cutClusters (void* argPtr)
         }
 
         AL_LOCK(0);
+#ifdef USE_QS
+        TM_BEGIN(&global_cliqueSize);
+#else
         TM_BEGIN(3);
+#endif
         long tmp_cliqueSize = (long)TM_SHARED_READ(global_cliqueSize);
         TM_SHARED_WRITE(global_cliqueSize, (tmp_cliqueSize + cliqueSize));
         TM_END();
@@ -603,7 +607,11 @@ cutClusters (void* argPtr)
     }
 
     AL_LOCK(0);
-    TM_BEGIN(4);
+#ifdef USE_QS
+        TM_BEGIN(&global_cutSetIndex);
+#else
+        TM_BEGIN(4);
+#endif
     long tmp_cutSetIndex = (long)TM_SHARED_READ(global_cutSetIndex);
     TM_SHARED_WRITE(global_cutSetIndex, (tmp_cutSetIndex + cutSetIndex));
     TM_END();

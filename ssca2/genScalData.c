@@ -804,7 +804,11 @@ genScalData (void* argPtr)
         long t = i + t1 % (TOT_VERTICES - i);
         if (t != i) {
         	AL_LOCK(0);
+#ifdef USE_QS
+            TM_BEGIN(&permV[t]);
+#else
             TM_BEGIN(5);
+#endif
             long t2 = (long)TM_SHARED_READ(permV[t]);
             TM_SHARED_WRITE(permV[t], TM_SHARED_READ(permV[i]));
             TM_SHARED_WRITE(permV[i], t2);
@@ -1093,7 +1097,11 @@ genScalData (void* argPtr)
     }
 
     AL_LOCK(0);
+#ifdef USE_QS
+    TM_BEGIN(&global_edgeNum);
+#else
     TM_BEGIN(6);
+#endif
     TM_SHARED_WRITE(global_edgeNum,
                     ((long)TM_SHARED_READ(global_edgeNum) + i_edgePtr));
     TM_END();
@@ -1312,7 +1320,11 @@ genScalData (void* argPtr)
     }
 
     AL_LOCK(0);
+#ifdef USE_QS
+    TM_BEGIN(&global_edgeNum);
+#else
     TM_BEGIN(7);
+#endif
     TM_SHARED_WRITE(global_edgeNum,
                     ((long)TM_SHARED_READ(global_edgeNum) + i_edgePtr));
     TM_END();
@@ -1395,7 +1407,11 @@ genScalData (void* argPtr)
     }
 
     AL_LOCK(0);
+#ifdef USE_QS
+    TM_BEGIN(&global_numStrWtEdges);
+#else
     TM_BEGIN(8);
+#endif
     TM_SHARED_WRITE(global_numStrWtEdges,
                     ((long)TM_SHARED_READ(global_numStrWtEdges) + numStrWtEdges));
     TM_END();
