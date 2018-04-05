@@ -1,7 +1,7 @@
 tries=1
 threads=1
 queues=1
-repeats=1
+repeats=3
 benchmark=$1
 opt=$2
 
@@ -11,7 +11,7 @@ rm -r $path
 mkdir $path
 
 cd ..
-for v in 1 2
+for v in 1 2 3 4
 do
     echo $v
     echo "~~~~" >> "tests/"$path"qs_output"

@@ -9,7 +9,7 @@ d = "data"
 w = 0.13
 h = 0.18
 
-set xrange [0:2]
+#set xrange [0:2]
 #set yrange [0:5]
 
 #set ylabel "time"
@@ -27,7 +27,7 @@ do for [i=1:words(dirs)] {
 
     set title word(dirs, i)
 
-    plot d.'/'.word(dirs, i).'/qs_time' with linespoints ls 1 title "qs", \
-    d.'/'.word(dirs, i).'/rtm_time' with linespoints ls 2 title "rtm"
+    plot d.'/'.word(dirs, i).'/qs_tx' with linespoints ls 1 title "qs", \
+    d.'/'.word(dirs, i).'/rtm_tx' with linespoints ls 2 title "rtm"
 
 }
