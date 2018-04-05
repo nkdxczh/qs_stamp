@@ -1,0 +1,33 @@
+clear
+reset
+set multiplot
+
+xgap = 0.03
+ygap = 0.055
+d = "data"
+
+w = 0.13
+h = 0.18
+
+set xrange [0:2]
+#set yrange [0:5]
+
+#set ylabel "time"
+
+dirs = system("ls data")
+
+do for [i=1:words(dirs)] {
+    row=(i-1)/6
+    col=i-1-row*6
+
+    set tmargin at screen row*(h+ygap)+ygap
+    set bmargin at screen (row+1)*(h+ygap)
+    set lmargin at screen col*(w + xgap)+xgap
+    set rmargin at screen (col+1)*(w + xgap)
+
+    set title word(dirs, i)
+
+    plot d.'/'.word(dirs, i).'/qs_time' with linespoints ls 1 title "qs", \
+    d.'/'.word(dirs, i).'/rtm_time' with linespoints ls 2 title "rtm"
+
+}

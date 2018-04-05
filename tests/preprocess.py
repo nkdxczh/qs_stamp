@@ -80,6 +80,9 @@ def readFile(input, outputs, flag):
     out2.close()
     out3.close()
 
-d = 'thread1'
-readFile(d+'/qs_output', [d+'/qs_time', d+'/qs_tx', d+'/qs_conflict'], 3)
-readFile(d+'/rtm_output', [d+'/rtm_time', d+'/rtm_tx', d+'/rtm_conflict'], 3)
+alld = ['genome-','genome+','genome++',"intruder-","intruder+","intruder++","kmeanshigh","kmeanshigh+","kmeanshigh++","kmeanslow","kmeanslow+","kmeanslow++","ssca2-","ssca2+","ssca2++","vacationhigh","vacationhigh+","vacationhigh++","vacationlow","vacationlow+","vacationlow++","yada-","yada+","yada++"]
+print len(alld)
+for d in alld:
+    d = 'data/' + d
+    readFile(d+'/qs_output', [d+'/qs_time', d+'/qs_tx', d+'/qs_conflict'], 3)
+    readFile(d+'/rtm_output', [d+'/rtm_time', d+'/rtm_tx', d+'/rtm_conflict'], 3)

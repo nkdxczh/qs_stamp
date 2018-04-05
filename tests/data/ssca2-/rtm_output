@@ -1,26 +1,44 @@
 ~~~~
 1
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c alg_radix_smp.c -o alg_radix_smp.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c computeGraph.c -o computeGraph.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c createPartition.c -o createPartition.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c cutClusters.c -o cutClusters.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c findSubGraphs.c -o findSubGraphs.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c genScalData.c -o genScalData.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c getStartLists.c -o getStartLists.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c getUserParameters.c -o getUserParameters.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c globals.c -o globals.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ssca2.c -o ssca2.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=1 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm alg_radix_smp.o computeGraph.o createPartition.o cutClusters.o findSubGraphs.o genScalData.o getStartLists.o getUserParameters.o globals.o ssca2.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o ssca2
+-----
+0.007345
+0.999111
+0.000888
 ~~~~
 2
-~~~~
-4
-~~~~
-8
-~~~~
-16
-~~~~
-32
-~~~~
-50
-~~~~
-64
-~~~~
-80
-~~~~
-100
-~~~~
-128
-~~~~
-140
-~~~~
-160
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c alg_radix_smp.c -o alg_radix_smp.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c computeGraph.c -o computeGraph.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c createPartition.c -o createPartition.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c cutClusters.c -o cutClusters.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c findSubGraphs.c -o findSubGraphs.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c genScalData.c -o genScalData.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c getStartLists.c -o getStartLists.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c getUserParameters.c -o getUserParameters.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c globals.c -o globals.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ssca2.c -o ssca2.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DENABLE_KERNEL1 -w -DTOTAL_ATTEMPTS=1 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=2 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm alg_radix_smp.o computeGraph.o createPartition.o cutClusters.o findSubGraphs.o genScalData.o getStartLists.o getUserParameters.o globals.o ssca2.o ../lib/mt19937ar.o ../lib/random.o ../lib/thread.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o ssca2
+-----
+0.004544
+0.995556
+0.004424
