@@ -1,2 +1,630 @@
 ~~~~
-1
+4
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=4 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.015021
+0.593004
+0.724513
+--------
+0.015586
+0.578354
+0.732108
+--------
+0.016300
+0.563615
+0.737820
+--------
+0.015406
+0.573116
+0.734194
+--------
+0.014085
+0.581905
+0.731999
+~~~~
+8
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=8 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.020845
+0.354753
+0.788980
+--------
+0.017416
+0.367711
+0.788350
+--------
+0.017023
+0.371794
+0.787045
+--------
+0.016786
+0.375344
+0.786658
+--------
+0.017990
+0.364427
+0.788262
+~~~~
+12
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=12 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.016531
+0.495519
+0.756429
+--------
+0.016751
+0.484695
+0.759890
+--------
+0.018403
+0.426936
+0.774056
+--------
+0.019321
+0.399166
+0.780506
+--------
+0.016550
+0.459675
+0.766844
+~~~~
+16
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=16 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.020900
+0.406563
+0.778778
+--------
+0.018625
+0.400266
+0.781733
+--------
+0.018186
+0.413126
+0.779518
+--------
+0.015004
+0.470244
+0.763879
+--------
+0.017388
+0.415787
+0.777837
+~~~~
+20
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=20 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.018167
+0.491622
+0.759135
+--------
+0.014312
+0.544375
+0.746488
+--------
+0.015101
+0.536661
+0.749278
+--------
+0.015276
+0.531962
+0.749789
+--------
+0.012413
+0.569731
+0.739015
+~~~~
+24
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=24 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.019433
+0.430116
+0.775338
+--------
+0.019228
+0.406364
+0.781061
+--------
+0.015789
+0.476469
+0.764481
+--------
+0.017170
+0.467340
+0.765874
+--------
+0.016822
+0.473013
+0.765543
+~~~~
+28
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=28 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.019874
+0.449987
+0.768363
+--------
+0.017945
+0.496589
+0.756735
+--------
+0.017889
+0.490742
+0.758732
+--------
+0.018573
+0.474440
+0.762259
+--------
+0.018886
+0.459201
+0.767307
+~~~~
+32
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=32 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.021560
+0.424055
+0.775075
+--------
+0.016363
+0.526437
+0.749033
+--------
+0.016329
+0.509167
+0.752656
+--------
+0.017592
+0.495616
+0.756292
+--------
+0.017525
+0.513241
+0.751119
+~~~~
+36
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=36 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.015297
+0.578220
+0.736024
+--------
+0.015190
+0.580257
+0.734029
+--------
+0.016143
+0.569544
+0.740064
+--------
+0.017930
+0.541036
+0.746522
+--------
+0.014110
+0.600974
+0.728361
+~~~~
+40
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=40 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.020895
+0.457209
+0.767381
+--------
+0.017729
+0.513762
+0.753227
+--------
+0.017017
+0.516417
+0.753770
+--------
+0.018973
+0.501460
+0.757553
+--------
+0.018417
+0.511550
+0.756308
+~~~~
+44
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=44 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.019327
+0.520658
+0.748822
+--------
+0.019234
+0.517473
+0.751670
+--------
+0.016023
+0.547377
+0.742429
+--------
+0.021282
+0.517031
+0.751790
+--------
+0.018106
+0.537291
+0.744652
+~~~~
+48
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=48 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.021499
+0.449014
+0.769442
+--------
+0.020314
+0.486513
+0.758866
+--------
+0.012353
+0.586097
+0.727693
+--------
+0.017626
+0.535863
+0.744711
+--------
+0.018301
+0.536924
+0.746286
+~~~~
+52
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=52 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.018021
+0.560340
+0.738571
+--------
+0.017495
+0.573955
+0.736604
+--------
+0.016723
+0.573601
+0.736531
+--------
+0.015465
+0.591371
+0.732043
+--------
+0.025944
+0.562108
+0.741161
+~~~~
+56
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=56 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.020902
+0.495183
+0.759235
+--------
+0.024125
+0.483164
+0.763349
+--------
+0.019179
+0.506142
+0.758066
+--------
+0.015185
+0.558551
+0.741371
+--------
+0.019558
+0.521520
+0.753920
+~~~~
+60
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c decoder.c -o decoder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c detector.c -o detector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c dictionary.c -o dictionary.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c intruder.c -o intruder.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c packet.c -o packet.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c preprocessor.c -o preprocessor.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c stream.c -o stream.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/list.c -o ../lib/list.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/mt19937ar.c -o ../lib/mt19937ar.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/pair.c -o ../lib/pair.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/queue.c -o ../lib/queue.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/random.c -o ../lib/random.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/rbtree.c -o ../lib/rbtree.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/hashtable.c -o ../lib/hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/conc_hashtable.c -o ../lib/conc_hashtable.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/thread.c -o ../lib/thread.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/vector.c -o ../lib/vector.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_scheduler.c -o ../lib/qs_scheduler.o
+g++ -mrtm -g -w -pthread -fpermissive -ggdb -mrtm -fopenmp -std=c++11 -I../lib -I/home/zhanhaochen/boost/include -DMAP_USE_RBTREE -w -DTOTAL_ATTEMPTS=5 -DAPRIORI_LOCK_ATTEMPTS=1 -DNUMBER_THREADS=60 -DNUMBER_ATOMIC_BLOCKS=3 -DCPU_LOCKS=2 "-DUSE_RTM" -c ../lib/qs_schunit.c -o ../lib/qs_schunit.o
+g++ -lpthread -lrt -lpthread -lm decoder.o detector.o dictionary.o intruder.o packet.o preprocessor.o stream.o ../lib/list.o ../lib/mt19937ar.o ../lib/pair.o ../lib/queue.o ../lib/random.o ../lib/rbtree.o ../lib/hashtable.o ../lib/conc_hashtable.o ../lib/thread.o ../lib/vector.o ../lib/qs_scheduler.o ../lib/qs_schunit.o -lpthread -lrt -lpthread -lm -o intruder
+--------
+0.027392
+0.428306
+0.773742
+--------
+0.020172
+0.490503
+0.758280
+--------
+0.018754
+0.517625
+0.751509
+--------
+0.019777
+0.516830
+0.750446
+--------
+0.017886
+0.532556
+0.745703

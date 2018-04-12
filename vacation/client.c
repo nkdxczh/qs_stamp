@@ -192,7 +192,8 @@ client_run (void* argPtr)
                 bool_t isFound = FALSE;
                 AL_LOCK(0);
 #ifdef USE_QS
-                TM_BEGIN(managerPtr);
+		#define QS_SPLITS 311
+                TM_BEGIN((unsigned)managerPtr + (unsigned)&isFound % QS_SPLITS);
 #else
                 TM_BEGIN(0);
 #endif
@@ -249,7 +250,7 @@ client_run (void* argPtr)
                 long customerId = random_generate(randomPtr) % queryRange + 1;
                 AL_LOCK(0);
 #ifdef USE_QS
-                TM_BEGIN(managerPtr);
+                TM_BEGIN((unsigned)managerPtr + (unsigned)&customerId % QS_SPLITS);
 #else
                 TM_BEGIN(1);
 #endif
@@ -275,7 +276,7 @@ client_run (void* argPtr)
                 }
                 AL_LOCK(0);
 #ifdef USE_QS
-                TM_BEGIN(managerPtr);
+                TM_BEGIN((unsigned)managerPtr + (unsigned)&n % QS_SPLITS);
 #else
                 TM_BEGIN(2);
 #endif

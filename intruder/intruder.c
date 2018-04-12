@@ -214,7 +214,8 @@ processPackets (void* argPtr)
         AL_LOCK(0);
 
 #ifdef USE_QS
-        TM_BEGIN(streamPtr);
+        int splits = 5;
+        TM_BEGIN((unsigned)streamPtr + (unsigned)&splits % splits);
 #else
         TM_BEGIN(1);
 #endif
@@ -232,7 +233,7 @@ processPackets (void* argPtr)
         AL_LOCK(0);
 
 #ifdef USE_QS
-        TM_BEGIN(decoderPtr);
+        TM_BEGIN((unsigned)decoderPtr + (unsigned)&splits % splits);
 #else
         TM_BEGIN(2);
 #endif
@@ -255,7 +256,7 @@ processPackets (void* argPtr)
         AL_LOCK(0);
 
 #ifdef USE_QS
-        TM_BEGIN(decoderPtr);
+        TM_BEGIN((unsigned)decoderPtr + (unsigned)&splits % splits);
 #else
         TM_BEGIN(0);
 #endif

@@ -375,7 +375,9 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
             /* Find an empty constructEntries entry */
             AL_LOCK(0);
 #ifdef USE_QS        
-            TM_BEGIN(&constructEntries[entryIndex]);
+            #define QS_SPLITS 211
+            int ptr;
+            TM_BEGIN(&constructEntries[entryIndex] + (unsigned)&ptr % QS_SPLITS);
 #else
             TM_BEGIN(1);
 #endif
@@ -406,7 +408,8 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
                             (startHash << 6) + (startHash << 16) - startHash;
                 AL_LOCK(0);
 #ifdef USE_QS        
-                TM_BEGIN(startHashToConstructEntryTables[j]);
+		int ptr1;
+                TM_BEGIN((unsigned)startHashToConstructEntryTables[j] + (unsigned)&ptr1 % QS_SPLITS);
 #else
                 TM_BEGIN(2);
 #endif
@@ -424,7 +427,8 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
                         (startHash << 6) + (startHash << 16) - startHash;
             AL_LOCK(0);
 #ifdef USE_QS        
-            TM_BEGIN(hashToConstructEntryTable);
+	    int ptr2;
+            TM_BEGIN((unsigned)hashToConstructEntryTable + (unsigned)&ptr2 %  QS_SPLITS);
 #else
             TM_BEGIN(3);
 #endif
@@ -497,7 +501,8 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
                 /* endConstructEntryPtr is local except for properties startPtr/endPtr/length */
                 AL_LOCK(0);
 #ifdef USE_QS        
-                TM_BEGIN(startConstructEntryPtr->isStart);
+		int ptr;
+                TM_BEGIN((unsigned)startConstructEntryPtr + (unsigned)&ptr % QS_SPLITS);
 #else
                 TM_BEGIN(4);
 #endif
