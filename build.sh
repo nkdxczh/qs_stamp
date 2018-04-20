@@ -6,7 +6,7 @@ benchmark=$5
 macros=$6
 
 processors=$(grep -c ^processor /proc/cpuinfo)
-cores=2
+cores=10
 
 
 if [[ $processors == 8 ]] ;  then

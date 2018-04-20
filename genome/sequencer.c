@@ -291,7 +291,7 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
     	AL_LOCK(0);
 
 #ifdef USE_QS        
-        TM_BEGIN(uniqueSegmentsPtr);
+        TM_BEGIN(vector_at(segmentsContentsPtr,i));
 #else
         TM_BEGIN(0);
 #endif
@@ -375,7 +375,7 @@ if (numThread < 0) { printf("Here I am: %ld\t%ld\t%ld\n", i_start, i_stop, CHUNK
             /* Find an empty constructEntries entry */
             AL_LOCK(0);
 #ifdef USE_QS        
-            #define QS_SPLITS 211
+            #define QS_SPLITS 1
             int ptr;
             TM_BEGIN(&constructEntries[entryIndex] + (unsigned)&ptr % QS_SPLITS);
 #else

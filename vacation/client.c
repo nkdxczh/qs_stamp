@@ -192,7 +192,7 @@ client_run (void* argPtr)
                 bool_t isFound = FALSE;
                 AL_LOCK(0);
 #ifdef USE_QS
-		#define QS_SPLITS 311
+		#define QS_SPLITS 10
                 TM_BEGIN((unsigned)managerPtr + (unsigned)&isFound % QS_SPLITS);
 #else
                 TM_BEGIN(0);

@@ -209,7 +209,9 @@ process ()
 
         AL_LOCK(0);
 #ifdef USE_QS
-        TM_BEGIN(workHeapPtr);
+#define QS_SPLITS 5
+int ptr;
+        TM_BEGIN((unsigned)workHeapPtr + (unsigned)&ptr % QS_SPLITS);
 #else
         TM_BEGIN(0);
 #endif
@@ -222,7 +224,7 @@ process ()
         bool_t isGarbage;
         AL_LOCK(0);
 #ifdef USE_QS
-        TM_BEGIN(elementPtr);
+        TM_BEGIN((unsigned)elementPtr + (unsigned)&ptr % QS_SPLITS);
 #else
         TM_BEGIN(1);
 #endif
@@ -240,7 +242,7 @@ process ()
 
         AL_LOCK(0);
 #ifdef USE_QS
-        TM_BEGIN(regionPtr);
+        TM_BEGIN((unsigned)regionPtr + (unsigned)&ptr % QS_SPLITS);
 #else
         TM_BEGIN(2);
 #endif
@@ -250,7 +252,7 @@ process ()
 
         AL_LOCK(0);
 #ifdef USE_QS
-        TM_BEGIN(elementPtr);
+        TM_BEGIN((unsigned)elementPtr + (unsigned)&ptr % QS_SPLITS);
 #else
         TM_BEGIN(3);
 #endif
@@ -268,7 +270,7 @@ process ()
 
         AL_LOCK(0);
 #ifdef USE_QS
-        TM_BEGIN(regionPtr);
+        TM_BEGIN((unsigned)regionPtr + (unsigned)&ptr % QS_SPLITS);
 #else
         TM_BEGIN(4);
 #endif
@@ -281,7 +283,8 @@ process ()
 
     AL_LOCK(0);
 #ifdef USE_QS
-    TM_BEGIN(&global_totalNumAdded);
+int ptr;
+    TM_BEGIN((unsigned)&global_totalNumAdded + (unsigned)&ptr % QS_SPLITS);
 #else
     TM_BEGIN(5);
 #endif

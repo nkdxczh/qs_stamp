@@ -3,6 +3,8 @@
 
 #include <thread>
 
+#define USE_STD
+
 QS_SchMap sch_map;
 
 bool QS_terminate = false;
