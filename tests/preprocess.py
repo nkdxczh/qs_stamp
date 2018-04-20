@@ -1,4 +1,8 @@
+from os import listdir
+from os.path import isfile, join
+
 def readFile(input, outputs, flag):
+    flag = 3
     out1 = open(outputs[0], 'w')
     out2 = open(outputs[1], 'w')
     out3 = open(outputs[2], 'w')
@@ -25,7 +29,7 @@ def readFile(input, outputs, flag):
                     print times
                     print txs
                     print conflicts'''
-                    if current > 0:
+                    if current < 100:
                         times.sort()
                         if flag == 0:
                             out1.write(str(current) + " " + str(times[0]) + "\n")
@@ -35,7 +39,7 @@ def readFile(input, outputs, flag):
                             out1.write(str(current) + " " + str(times[len(times)/2]) + "\n")
                         elif flag == 3:
                             if len(times) > 0:
-                                out1.write(str(current) + " " + str(sum(times) / len(times)) + " " + str(times[0]) + " " + str(times[-1]) + "\n")
+                                out1.write(str(current) + " " + str(sum(times) / (len(times))) + " " + str(times[0]) + " " + str(times[-1]) + "\n")
                         elif flag == 4:
                             out1.write(str(current) + " " + str(sum(times[:-1]) / (len(times) - 1)) + "\n")
                     if len(txs) > 0:
@@ -56,12 +60,17 @@ def readFile(input, outputs, flag):
                 op += 1
             elif op == 3:
                 conflicts.append(float(line))
-                op = 1
+                op = 4
 
     '''print current, len(times)
     print times
     print txs
     print conflicts'''
+    if current > 100:
+        out1.close()
+        out2.close()
+        out3.close()
+        return
 
     times.sort()
     if flag == 0:
@@ -72,7 +81,7 @@ def readFile(input, outputs, flag):
         out1.write(str(current) + " " + str(times[len(times)/2]) + "\n")
     elif flag == 3:
 	if len(times) > 0:
-        	out1.write(str(current) + " " + str(sum(times) / len(times)) + " " + str(times[0]) + " " + str(times[-1]) + "\n")
+            out1.write(str(current) + " " + str(sum(times) / (len(times))) + " " + str(times[0]) + " " + str(times[-1]) + "\n")
     elif flag == 4:
         out1.write(str(current) + " " + str(sum(times[:-1]) / (len(times) - 1)) + "\n")
 
@@ -84,9 +93,14 @@ def readFile(input, outputs, flag):
     out2.close()
     out3.close()
 
-alld = ['genome-','genome+','genome++',"intruder-","intruder+","intruder++","kmeanshigh","kmeanshigh+","kmeanshigh++","kmeanslow","kmeanslow+","kmeanslow++","ssca2-","ssca2+","ssca2++","vacationhigh","vacationhigh+","vacationhigh++","vacationlow","vacationlow+","vacationlow++","yada-","yada+","yada++"]
+alld = listdir('data')
+#alld = ['genome-','genome+','genome++',"intruder-","intruder+","intruder++","kmeanshigh","kmeanshigh+","kmeanshigh++","kmeanslow","kmeanslow+","kmeanslow++","ssca2-","ssca2+","ssca2++","vacationhigh","vacationhigh+","vacationhigh++","vacationlow","vacationlow+","vacationlow++","yada-","yada+","yada++"]
 #print len(alld)
+print alld
 for d in alld:
     d = 'data/' + d
-    readFile(d+'/qs_output', [d+'/qs_time', d+'/qs_tx', d+'/qs_conflict'], 3)
+    #readFile(d+'/qs_output', [d+'/qs_time', d+'/qs_tx', d+'/qs_conflict'], 3)
     readFile(d+'/rtm_output', [d+'/rtm_time', d+'/rtm_tx', d+'/rtm_conflict'], 3)
+    readFile(d+'/hle_output', [d+'/hle_time', d+'/hle_tx', d+'/hle_conflict'], 3)
+    readFile(d+'/scm_output', [d+'/scm_time', d+'/scm_tx', d+'/scm_conflict'], 3)
+    readFile(d+'/seer_output', [d+'/seer_time', d+'/seer_tx', d+'/seer_conflict'], 3)

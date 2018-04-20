@@ -1,4 +1,4 @@
-tries=1
+tries=5
 threads=80
 queues=120
 repeats=1
@@ -31,19 +31,39 @@ then
     queues=120
 fi
 
+seer_mac="-DUSE_SEER-DUSE_TX_LOCKS-DUSE_CPU_LOCKS-DUSE_HTM_LOCKS-DUSE_GRADIENT_DESCENT"
 cd ..
-for v in {4..60..4}
+
+threads=8
+queues=0
+bash build.sh $tries 1 $threads 3 $benchmark "" $queues
+bash build.sh $tries 1 $threads 3 $benchmark \"-DUSE_HLE\" $queues
+bash build.sh $tries 1 $threads 3 $benchmark \"-DUSE_SCM\" $queues
+bash build.sh $tries 1 $threads 3 $benchmark \"${seer_mac}\" $queues
+
+for v in 1 2 3 4 5 6 7 8
 do
     echo $v
-    echo "~~~~" >> "tests/"$path"qs_output"
-    echo $v >> "tests/"$path"qs_output"
+    #echo "~~~~" >> "tests/"$path"qs_output"
+    #echo $v >> "tests/"$path"qs_output"
     echo "~~~~" >> "tests/"$path"rtm_output"
     echo $v >> "tests/"$path"rtm_output"
+    echo "~~~~" >> "tests/"$path"hle_output"
+    echo $v >> "tests/"$path"hle_output"
+    echo "~~~~" >> "tests/"$path"scm_output"
+    echo $v >> "tests/"$path"scm_output"
+    echo "~~~~" >> "tests/"$path"seer_output"
+    echo $v >> "tests/"$path"seer_output"
     threads=$v
     #echo ./run.sh $tries $threads $clusters \"-DUSE_QS\" $queues
-    #./run.sh $tries $threads \"-DUSE_QS\" $queues $repeat $benchmark $opt >> tests/data/output
-    #./run.sh $tries $threads \"-DUSE_RTM\" 0 $repeat $benchmark $opt>> tests/data/old_output
-    ./run.sh $tries $threads \"-DUSE_QS\" $queues $repeats $benchmark $opt >> "tests/"$path"qs_output"
-    ./run.sh $tries $threads \"-DUSE_RTM\" 0 $repeats $benchmark $opt >> "tests/"$path"rtm_output"
+    #./run.sh $tries $threads \"-DUSE_QS\" $queues $repeats $benchmark $opt >> "tests/"$path"qs_output"
+    #./run.sh $tries $threads \"\" 0 $repeats $benchmark $opt
+    #./run.sh $tries $threads \"-DUSE_HLE\" 0 $repeats $benchmark $opt
+    #./run.sh $tries $threads \"-DUSE_SCM\" 0 $repeats $benchmark $opt
+    #./run.sh $tries $threads $seer_mac 0 $repeats $benchmark $opt
+    ./run.sh $tries $threads \"\" 0 $repeats $benchmark $opt >> "tests/"$path"rtm_output"
+    ./run.sh $tries $threads \"-DUSE_HLE\" 0 $repeats $benchmark $opt >> "tests/"$path"hle_output"
+    ./run.sh $tries $threads \"-DUSE_SCM\" 0 $repeats $benchmark $opt >> "tests/"$path"scm_output"
+    ./run.sh $tries $threads $seer_mac 0 $repeats $benchmark $opt >> "tests/"$path"seer_output"
 done
 cd tests

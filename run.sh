@@ -6,7 +6,7 @@ repeats=$5
 benchmark=$6
 opt=$7
 
-bash build.sh $tries 1 $threads 3 $benchmark $macro $queues
+#bash build.sh $tries 1 $threads 3 $benchmark $macro $queues
 
 for i in {1..10}
 do
