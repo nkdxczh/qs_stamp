@@ -34,14 +34,14 @@ fi
 seer_mac="-DUSE_SEER-DUSE_TX_LOCKS-DUSE_CPU_LOCKS-DUSE_HTM_LOCKS-DUSE_GRADIENT_DESCENT"
 cd ..
 
-threads=8
+threads=32
 queues=0
 bash build.sh $tries 1 $threads 3 $benchmark "" $queues
 bash build.sh $tries 1 $threads 3 $benchmark \"-DUSE_HLE\" $queues
 bash build.sh $tries 1 $threads 3 $benchmark \"-DUSE_SCM\" $queues
 bash build.sh $tries 1 $threads 3 $benchmark \"${seer_mac}\" $queues
 
-for v in 1 2 3 4 5 6 7 8
+for v in {1..32}
 do
     echo $v
     #echo "~~~~" >> "tests/"$path"qs_output"

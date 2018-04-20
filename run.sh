@@ -8,7 +8,7 @@ opt=$7
 
 #bash build.sh $tries 1 $threads 3 $benchmark $macro $queues
 
-for i in {1..10}
+for i in {1..1}
 do
 
 cd $benchmark

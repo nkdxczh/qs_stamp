@@ -11,3 +11,4 @@ kmeans/kmeans
 .project
 .gitignore~
 */*.swp
+tests/data
