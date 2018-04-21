@@ -2,7 +2,7 @@
 #declare -a arr=("genome -" "genome +" "intruder -" "intruder +" "kmeans high" "kmeans high+" "kmeans low" "kmeans low+" "ssca2 -" "ssca2 +" "vacation high" "vacation high+" "vacation low" "vacation low+" "yada -" "yada +")
 #declare -a arr=("intruder ++" "kmeans high" "kmeans low" "kmeans high+" "kmeans low+" "kmeans high++" "kmeans low++" "ssca2 ++" "vacation high" "vacation low" "vacation high+" "vacation low+" "vacation high++" "vacation low++" "yada ++")
 #declare -a arr=("genome ++" "intruder ++" "kmeans high++" "kmeans low++" "ssca2 ++" "vacation high++" "vacation low++" "yada ++")
-declare -a arr=("yada -")
+declare -a arr=("ssca2 -")
 
 for i in "${arr[@]}"
 do

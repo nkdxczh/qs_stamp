@@ -12,7 +12,7 @@ mkdir $path
 
 if [[ "$benchmark" = "genome" ]];
 then
-    queues=88
+    queues=16
 fi
 if [[ "$benchmark" = "intruder" ]];
 then
@@ -24,11 +24,15 @@ then
 fi
 if [[ "$benchmark" = "ssca2" ]];
 then
-    queues=98
+    queues=64
 fi
 if [[ "$benchmark" = "vacation" ]];
 then
     queues=64
+fi
+if [[ "$benchmark" = "yada" ]];
+then
+    queues=32
 fi
 
 seer_mac="-DUSE_SEER-DUSE_TX_LOCKS-DUSE_CPU_LOCKS-DUSE_HTM_LOCKS-DUSE_GRADIENT_DESCENT"
@@ -39,14 +43,14 @@ bash build.sh $tries 1 $threads 3 $benchmark \"-DUSE_QS\" $queues
 
 for v in 1 2 4 8 16 32 64
 do
-    echo $benchmark $v qs
+    echo $benchmark $v qs $queues
     echo "~~~~" >> "tests/"$path"qs_output"
     echo $v >> "tests/"$path"qs_output"
     threads=$v
     ./run.sh $tries $threads \"-DUSE_QS\" 0 $repeats $benchmark $opt >> "tests/"$path"qs_output"
 done
 
-threads=64
+c='threads=64
 
 bash build.sh $tries 1 $threads 3 $benchmark "" $queues
 
@@ -93,6 +97,6 @@ do
     echo $v >> "tests/"$path"seer_output"
     threads=$v
     ./run.sh $tries $threads \"\" 0 $repeats $benchmark $opt >> "tests/"$path"seer_output"
-done
+done'
 
 cd tests

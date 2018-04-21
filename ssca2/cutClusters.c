@@ -531,7 +531,9 @@ cutClusters (void* argPtr)
 
         AL_LOCK(0);
 #ifdef USE_QS
-        TM_BEGIN(&global_cliqueSize);
+#define QS_SPLITS 11
+int ptr1;
+        TM_BEGIN((unsigned)&global_cliqueSize + (unsigned)&ptr1 % QS_SPLITS);
 #else
         TM_BEGIN(3);
 #endif
@@ -608,7 +610,8 @@ cutClusters (void* argPtr)
 
     AL_LOCK(0);
 #ifdef USE_QS
-        TM_BEGIN(&global_cutSetIndex);
+int ptr2;
+        TM_BEGIN((unsigned)&global_cutSetIndex + (unsigned)&ptr2 % QS_SPLITS);
 #else
         TM_BEGIN(4);
 #endif

@@ -182,7 +182,9 @@ computeGraph (void* argPtr)
 
     AL_LOCK(0);
 #ifdef USE_QS
-    TM_BEGIN(&global_maxNumVertices);
+#define QS_SPLITS 111
+int ptr;
+    TM_BEGIN((unsigned)&global_maxNumVertices + (unsigned)&ptr % QS_SPLITS);
 #else
     TM_BEGIN(0);
 #endif
@@ -303,7 +305,8 @@ computeGraph (void* argPtr)
 
     AL_LOCK(0);
 #ifdef USE_QS
-    TM_BEGIN(&global_outVertexListSize);
+int ptr1;
+    TM_BEGIN((unsigned)&global_outVertexListSize + (unsigned)&ptr1 % QS_SPLITS);
 #else
     TM_BEGIN(1);
 #endif
@@ -484,7 +487,7 @@ computeGraph (void* argPtr)
             if (k == GPtr->outVertexIndex[v]+GPtr->outDegree[v]) {
             	AL_LOCK(0);
 #ifdef USE_QS
-    TM_BEGIN(&GPtr->inDegree[v]);
+    TM_BEGIN(auxArr[v]);
 #else
     TM_BEGIN(2);
 #endif

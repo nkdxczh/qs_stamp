@@ -121,7 +121,9 @@ getStartLists (void* argPtr)
 
     AL_LOCK(0);
 #ifdef USE_QS
-    TM_BEGIN(&global_maxWeight);
+#define QS_SPLITS 111	
+int ptr1;
+    TM_BEGIN((unsigned)&global_maxWeight + (unsigned)&ptr1 % QS_SPLITS);
 #else
     TM_BEGIN(9);
 #endif

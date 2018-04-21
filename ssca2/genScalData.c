@@ -805,7 +805,8 @@ genScalData (void* argPtr)
         if (t != i) {
         	AL_LOCK(0);
 #ifdef USE_QS
-            TM_BEGIN(&permV[t]);
+#define QS_SPLITS 111
+            TM_BEGIN(&t);
 #else
             TM_BEGIN(5);
 #endif
@@ -1098,7 +1099,8 @@ genScalData (void* argPtr)
 
     AL_LOCK(0);
 #ifdef USE_QS
-    TM_BEGIN(&global_edgeNum);
+int ptr1;
+    TM_BEGIN((unsigned)&global_edgeNum + (unsigned)&ptr1 % QS_SPLITS);
 #else
     TM_BEGIN(6);
 #endif
@@ -1321,7 +1323,8 @@ genScalData (void* argPtr)
 
     AL_LOCK(0);
 #ifdef USE_QS
-    TM_BEGIN(&global_edgeNum);
+int ptr2;
+    TM_BEGIN((unsigned)&global_edgeNum + (unsigned)&ptr2 % QS_SPLITS);
 #else
     TM_BEGIN(7);
 #endif
@@ -1408,7 +1411,8 @@ genScalData (void* argPtr)
 
     AL_LOCK(0);
 #ifdef USE_QS
-    TM_BEGIN(&global_numStrWtEdges);
+int ptr3;
+    TM_BEGIN((unsigned)&global_numStrWtEdges + (unsigned)&ptr3 % QS_SPLITS);
 #else
     TM_BEGIN(8);
 #endif

@@ -209,7 +209,7 @@ process ()
 
         AL_LOCK(0);
 #ifdef USE_QS
-#define QS_SPLITS 5
+#define QS_SPLITS 1
 int ptr;
         TM_BEGIN((unsigned)workHeapPtr + (unsigned)&ptr % QS_SPLITS);
 #else
