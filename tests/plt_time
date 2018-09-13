@@ -1,0 +1,42 @@
+clear
+reset
+set multiplot
+
+xgap = 0.03
+ygap = 0.055
+d = "timestamp"
+
+rows=2
+cols=4
+
+w = (1-(cols+1)*xgap)/cols
+h = (1-(rows+1)*ygap)/rows
+
+#set xrange [0:2]
+#set yrange [0:5]
+
+#set ylabel "time"
+
+dirs = "1 2 4 8 16 32 64"
+
+width = 0.00005
+bin(x)=0.00001*floor(x/0.00001)
+hist(x,width)=width*floor(x/width)+width/2.0
+
+#plot 'timestamp/32/distribute' w lines
+do for [i=1:words(dirs)] {
+    row=(i-1)/cols
+    col=i-1-row*cols
+
+    set tmargin at screen row*(h+ygap)+ygap
+    set bmargin at screen (row+1)*(h+ygap)
+    set lmargin at screen col*(w + xgap)+xgap
+    set rmargin at screen (col+1)*(w + xgap)
+
+    set title word(dirs, i)
+
+    #plot d.'/'.word(dirs, i).'/first' using (hist($1,width)):(1.0) smooth frequency w lines title "first", \
+    #d.'/'.word(dirs, i).'/second' using (hist($1,width)):(1.0) smooth frequency w lines title "second"
+    plot d.'/'.word(dirs, i).'/distribute' w lines title 'percentage'
+
+}

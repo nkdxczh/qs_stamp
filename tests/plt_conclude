@@ -1,0 +1,120 @@
+clear
+reset
+
+#set terminal postscript eps size 12,3 enhanced color \
+    font ',30' linewidth 2
+#set output 'output/yada.eps'
+
+
+set multiplot
+
+xgap = 0.06
+ygap = 0.02
+d = "data"
+lm = 0.02
+bm = 0.1
+
+rows=1
+cols=3
+
+w = (1-(cols+1)*xgap)/cols
+#h = (1-(rows+1)*ygap)/rows - 0.002
+h=0.8
+
+#set xrange [0:2]
+#set yrange [0:5]
+
+#set ylabel "time"
+
+#dirs = system("ls ".d)
+dirs = "yada-"
+#titles = "genome intruder kmeans-high kmeans-low ssca2 vacation-high vacation-low yada"
+titles = "yada"
+
+set label "Speedup" at screen 0.14, 0.985 font ',40'
+set label "Committed Transaction Ratio" at screen 0.37, 0.985 font ',40'
+set label "Conflict Ratio" at screen 0.74, 0.985 font ',40'
+
+do for [i=1:words(dirs)] {
+    row=rows-i
+    col=0
+
+    set tmargin at screen row*(h+ygap)+ygap+bm
+    set bmargin at screen (row+1)*(h+ygap)+bm
+    set lmargin at screen col*(w + xgap)+xgap+lm
+    set rmargin at screen (col+1)*(w + xgap)+lm
+
+if(i == 1){
+    set title ""
+    #set title "Speedup"
+}else{
+    set title ""
+}
+
+set ylabel word(titles, i) offset 1.8,0,0
+
+if (i > 1) {
+    plot d.'/'.word(dirs, i).'/qs_time' with linespoints ls 1 ps 2 pt 7 lw 3 notitle "qs", \
+    d.'/'.word(dirs, i).'/rtm_time' with linespoints ls 2 ps 2 pt 8 lw 3 notitle "rtm",\
+    d.'/'.word(dirs, i).'/hle_time' with linespoints ls 3 ps 2 pt 9 lw 3 notitle "hle",\
+    d.'/'.word(dirs, i).'/scm_time' with linespoints ls 4 ps 2 pt 4 lw 3 notitle "scm",\
+    d.'/'.word(dirs, i).'/seer_time' with linespoints ls 5 ps 2 pt 5 lw 3 notitle "seer"
+}else{
+    plot d.'/'.word(dirs, i).'/qs_time' with linespoints ls 1 ps 2 pt 7 lw 3 title "qs", \
+    d.'/'.word(dirs, i).'/rtm_time' with linespoints ls 2 ps 2 pt 8 lw 3 title "rtm",\
+    d.'/'.word(dirs, i).'/hle_time' with linespoints ls 3 ps 2 pt 9 lw 3 title "hle",\
+    d.'/'.word(dirs, i).'/scm_time' with linespoints ls 4 ps 2 pt 4 lw 3 title "scm",\
+    d.'/'.word(dirs, i).'/seer_time' with linespoints ls 5 ps 2 pt 5 lw 3 title "seer"
+}
+
+    col=1
+
+if(i == 1){
+    set title ""
+    #set title "Committed Transaction Ratio"
+}else{
+    set title ""
+}
+set ylabel ""
+
+if(i == 8){
+    set xlabel "Number of Threads"
+}
+
+    set tmargin at screen row*(h+ygap)+ygap+bm
+    set bmargin at screen (row+1)*(h+ygap)+bm
+    set lmargin at screen col*(w + xgap)+xgap+lm
+    set rmargin at screen (col+1)*(w + xgap)+lm
+
+    plot d.'/'.word(dirs, i).'/qs_tx' with linespoints ls 1 ps 2 pt 7 lw 3 notitle "qs", \
+    d.'/'.word(dirs, i).'/rtm_tx' with linespoints ls 2 ps 2 pt 8 lw 3 notitle "rtm",\
+    d.'/'.word(dirs, i).'/hle_tx' with linespoints ls 3 ps 2 pt 9 lw 3 notitle "hle",\
+    d.'/'.word(dirs, i).'/scm_tx' with linespoints ls 4 ps 2 pt 4 lw 3 notitle "scm",\
+    d.'/'.word(dirs, i).'/seer_tx' with linespoints ls 5 ps 2 pt 5 lw 3 notitle "seer"
+
+    col=2
+
+set xlabel ""
+
+if(i == 1){
+    set title ""
+    #set title "Conflict Ratio"
+}else{
+    set title ""
+}
+
+    set tmargin at screen row*(h+ygap)+ygap+bm
+    set bmargin at screen (row+1)*(h+ygap)+bm
+    set lmargin at screen col*(w + xgap)+xgap+lm
+    set rmargin at screen (col+1)*(w + xgap)+lm
+
+    plot d.'/'.word(dirs, i).'/qs_conflict' with linespoints ls 1 ps 2 pt 7 lw 3 notitle "qs", \
+    d.'/'.word(dirs, i).'/rtm_conflict' with linespoints ls 2 ps 2 pt 8 lw 3 notitle "rtm",\
+    d.'/'.word(dirs, i).'/hle_conflict' with linespoints ls 3 ps 2 pt 9 lw 3 notitle "hle",\
+    d.'/'.word(dirs, i).'/scm_conflict' with linespoints ls 4 ps 2 pt 4 lw 3 notitle "scm",\
+    d.'/'.word(dirs, i).'/seer_conflict' with linespoints ls 5 ps 2 pt 5 lw 3 notitle "seer"
+}
+
+
+unset multiplot
+unset output
